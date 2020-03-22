@@ -40,12 +40,7 @@ public class Board {
         var newPiece = new Piece(this, ColorInTurn, cell);
         pieces.Add(newPiece);
 
-        if (cell == Cell.d3)
-            GetPiece(Cell.d4).Reverse();
-        if (cell == Cell.c5)
-            GetPiece(Cell.d5).Reverse();
-        if (cell == Cell.b6)
-            GetPiece(Cell.c5).Reverse();
+        newPiece.Work();
 
         ChangeTurn();
         return true;
@@ -56,7 +51,7 @@ public class Board {
         else if (ColorInTurn == PieceColor.white) ColorInTurn = PieceColor.black;
     }
 
-    Piece GetPiece(Cell? cell) {
+    public Piece GetPiece(Cell? cell) {
         if (cell == null) return null;
         foreach (var piece in pieces)
             if (piece.Position == cell) return piece;

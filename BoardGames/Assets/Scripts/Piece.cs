@@ -13,9 +13,20 @@ public class Piece {
         Position = position;
     }
 
-    public void Reverse() {
+    public void Work() {
+        if (Position == Cell.d3) GetNextPiece(Direction.down).Reverse();
+        if (Position == Cell.c5) GetNextPiece(Direction.right).Reverse();
+        if (Position == Cell.b6) GetNextPiece(Direction.upRight).Reverse();
+    }
+
+    void Reverse() {
         if (Color == PieceColor.black) Color = PieceColor.white;
         else if (Color == PieceColor.white) Color = PieceColor.black;
+    }
+
+    Piece GetNextPiece(Direction direction) {
+        var nextCell = Position.Next(direction);
+        return board.GetPiece(nextCell);
     }
 }
 
