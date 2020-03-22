@@ -39,6 +39,14 @@ public class Board {
         if (GetPiece(cell) != null) return false;
         var newPiece = new Piece(this, ColorInTurn, cell);
         pieces.Add(newPiece);
+
+        if (cell == Cell.d3)
+            GetPiece(Cell.d4).Reverse();
+        if (cell == Cell.c5)
+            GetPiece(Cell.d5).Reverse();
+        if (cell == Cell.b6)
+            GetPiece(Cell.c5).Reverse();
+
         ChangeTurn();
         return true;
     }
@@ -55,4 +63,14 @@ public class Board {
         return null;
     }
 
+    public void PrintBoard() {
+        for (var rank = 0; rank < 8; rank++) {
+            string log = "";
+            for (var file = 0; file < 8; file++) {
+                Cell cell = (Cell)CellExtend.AllCases.GetValue((rank * 8) + file);
+                log += GetColor(cell).GetString();
+            }
+            Debug.Log(log);
+        }
+    }
 }
