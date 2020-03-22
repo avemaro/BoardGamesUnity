@@ -5,6 +5,8 @@ using UnityEngine;
 public class Board {
     public List<Piece> Pieces { get; private set; } = new List<Piece>();
     public PieceColor ColorInTurn { get; private set; } = PieceColor.black;
+    public bool IsGameOver { get; private set; }
+    public PieceColor Winner { get; private set; } = PieceColor.none;
 
     public Board() {
         Pieces.Add(new Piece(this, PieceColor.black, Cell.d5));
