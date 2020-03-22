@@ -19,8 +19,9 @@ public class Board {
         return piece.Color;
     }
 
-    public void PutPiece(Cell cell) {
+    public bool PutPiece(Cell cell) {
         ChangeTurn();
+        return false;
     }
 
     void ChangeTurn() {
