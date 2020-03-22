@@ -39,6 +39,10 @@ public class Board {
         if (GetPiece(cell) != null) return false;
         var newPiece = new Piece(this, ColorInTurn, cell);
         pieces.Add(newPiece);
+
+        if (cell == Cell.d3) GetPiece(Cell.d4).Reverse();
+        if (cell == Cell.c5) GetPiece(Cell.d5).Reverse();
+
         ChangeTurn();
         return true;
     }

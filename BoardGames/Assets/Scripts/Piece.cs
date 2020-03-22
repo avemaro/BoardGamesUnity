@@ -12,6 +12,11 @@ public class Piece {
         Color = color;
         Position = position;
     }
+
+    public void Reverse() {
+        if (Color == PieceColor.black) Color = PieceColor.white;
+        else if (Color == PieceColor.white) Color = PieceColor.black;
+    }
 }
 
 public enum PieceColor {
