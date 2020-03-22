@@ -20,8 +20,11 @@ public class Board {
     }
 
     public bool PutPiece(Cell cell) {
+        if (GetPiece(cell) != null) return false;
+        var newPiece = new Piece(this, ColorInTurn, cell);
+        pieces.Add(newPiece);
         ChangeTurn();
-        return false;
+        return true;
     }
 
     void ChangeTurn() {
