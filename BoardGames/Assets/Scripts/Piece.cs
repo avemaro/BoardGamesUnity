@@ -14,9 +14,11 @@ public class Piece {
     }
 
     public void Work() {
-        if (Position == Cell.d3) GetNextPiece(Direction.down).Reverse();
-        if (Position == Cell.c5) GetNextPiece(Direction.right).Reverse();
-        if (Position == Cell.b6) GetNextPiece(Direction.upRight).Reverse();
+        foreach (var direction in DirectionExtend.AllCases) {
+            var nextPiece = GetNextPiece(direction);
+            if (nextPiece == null) continue;
+            nextPiece.Reverse();
+        }
     }
 
     void Reverse() {
