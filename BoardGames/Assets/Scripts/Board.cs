@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Board {
-    List<Piece> pieces = new List<Piece>();
+    public List<Piece> Pieces { get; private set; } = new List<Piece>();
     public PieceColor ColorInTurn { get; private set; } = PieceColor.black;
 
     public Board() {
-        pieces.Add(new Piece(this, PieceColor.black, Cell.d5));
-        pieces.Add(new Piece(this, PieceColor.black, Cell.e4));
-        pieces.Add(new Piece(this, PieceColor.white, Cell.d4));
-        pieces.Add(new Piece(this, PieceColor.white, Cell.e5));
+        Pieces.Add(new Piece(this, PieceColor.black, Cell.d5));
+        Pieces.Add(new Piece(this, PieceColor.black, Cell.e4));
+        Pieces.Add(new Piece(this, PieceColor.white, Cell.d4));
+        Pieces.Add(new Piece(this, PieceColor.white, Cell.e5));
     }
 
     #region Color
@@ -43,7 +43,7 @@ public class Board {
     public bool PutPiece(Cell cell) {
         if (GetPiece(cell) != null) return false;
         var newPiece = new Piece(this, ColorInTurn, cell);
-        pieces.Add(newPiece);
+        Pieces.Add(newPiece);
 
         newPiece.Work();
 
@@ -53,7 +53,7 @@ public class Board {
 
     public Piece GetPiece(Cell? cell) {
         if (cell == null) return null;
-        foreach (var piece in pieces)
+        foreach (var piece in Pieces)
             if (piece.Position == cell) return piece;
         return null;
     }
@@ -74,7 +74,17 @@ public class Board {
     }
 
     void ChangeTurn() {
-        if (ColorInTurn == PieceColor.black) ColorInTurn = PieceColor.white;
-        else if (ColorInTurn == PieceColor.white) ColorInTurn = PieceColor.black;
+        ColorInTurn = ColorInTurn.Reverse();
+    }
+
+    public void PrintBoard() {
+        for (var rank = 0; rank < 8; rank++) {
+            string log = "";
+            for (var file = 0; file < 8; file++) {
+                Cell cell = (Cell)CellExtend.AllCases.GetValue((rank * 8) + file);
+                log += GetColor(cell).GetString();
+            }
+            Debug.Log(log);
+        }
     }
 }
