@@ -49,6 +49,17 @@ public class Board {
         newPiece.Work();
 
         ChangeTurn();
+        if (NoCellToPut()) ChangeTurn();
+
+        return true;
+    }
+
+    bool NoCellToPut() {
+        foreach (var cell in CellExtend.AllCases) {
+            if (!IsNone(cell)) continue;
+            var newPiece = new Piece(this, ColorInTurn, cell);
+            if (IsRegal(newPiece)) return false;
+        }
         return true;
     }
 

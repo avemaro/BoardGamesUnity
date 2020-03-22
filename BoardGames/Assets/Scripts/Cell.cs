@@ -20,8 +20,8 @@ public static class CellExtend {
     public static Cell? Next(this Cell cell, Direction direction) {
         if (cell.GetFile() == File.a && direction.Pos().x == -1) { return null; }
         if (cell.GetFile() == File.h && direction.Pos().x == 1) { return null; }
-        if (cell.GetRank() == Rank.one && direction.Pos().y == 1) { return null; }
-        if (cell.GetRank() == Rank.eight && direction.Pos().y == -1) { return null; }
+        if (cell.GetRank() == Rank.one && direction.Pos().y == -1) { return null; }
+        if (cell.GetRank() == Rank.eight && direction.Pos().y == 1) { return null; }
         int nextIndex = (int)cell + (int)direction;
         return (Cell)AllCases.GetValue(nextIndex);
     }
