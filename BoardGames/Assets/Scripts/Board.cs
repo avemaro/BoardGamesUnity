@@ -52,6 +52,7 @@ public class Board {
 
         ChangeTurn();
         if (NoCellToPut()) ChangeTurn();
+        if (NoCellToPut()) DecideWinner();
 
         return true;
     }
@@ -99,6 +100,20 @@ public class Board {
 
     void ChangeTurn() {
         ColorInTurn = ColorInTurn.Reverse();
+    }
+
+
+    void DecideWinner() {
+        IsGameOver = true;
+        int numberOfblack = 0;
+        int numberOfwhite = 0;
+        foreach (var piece in Pieces) {
+            if (piece.Color == PieceColor.black) numberOfblack++;
+            if (piece.Color == PieceColor.white) numberOfwhite++;
+        }
+        if (numberOfblack > numberOfwhite) Winner = PieceColor.black;
+        if (numberOfblack < numberOfwhite) Winner = PieceColor.white;
+        if (numberOfblack == numberOfwhite) Winner = PieceColor.none;
     }
 
     public void PrintBoard() {
