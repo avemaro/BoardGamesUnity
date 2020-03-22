@@ -20,6 +20,10 @@ public class Board {
     }
 
     public void PutPiece(Cell cell) {
+        ChangeTurn();
+    }
+
+    void ChangeTurn() {
         if (ColorInTurn == PieceColor.black) ColorInTurn = PieceColor.white;
         else if (ColorInTurn == PieceColor.white) ColorInTurn = PieceColor.black;
     }
