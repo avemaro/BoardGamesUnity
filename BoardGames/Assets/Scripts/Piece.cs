@@ -6,7 +6,7 @@ public class Piece {
     Board board;
     public PieceColor Color { get; private set; }
     public Cell Position { get; private set; }
-    bool isReversible = false;
+    public bool IsReversible { get; private set; } = false;
 
     public Piece(Board board, PieceColor color, Cell position) {
         this.board = board;
@@ -19,14 +19,18 @@ public class Piece {
         Reverse();
     }
 
+    public void Reset() {
+        IsReversible = false;
+    }
+
     void Reverse() {
         foreach (var piece in board.Pieces) {
-            if (piece.isReversible) piece.Color = piece.Color.Reverse();
-            piece.isReversible = false;
+            if (piece.IsReversible) piece.Color = piece.Color.Reverse();
+            piece.IsReversible = false;
         }
     }
 
-    void CheckReversible() {
+    public void CheckReversible() {
         foreach (var direction in DirectionExtend.AllCases) {
             var nextPiece = GetNextPiece(direction);
             if (nextPiece == null) continue;
@@ -48,7 +52,7 @@ public class Piece {
 
     void MarkReversible(PieceColor color, Direction direction) {
         if (!color.IsOpposite(Color)) return;
-        isReversible = true;
+        IsReversible = true;
         var nextPiece = GetNextPiece(direction);
         if (nextPiece == null) return;
         nextPiece.MarkReversible(color, direction);

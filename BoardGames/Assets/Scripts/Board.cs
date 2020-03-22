@@ -43,12 +43,23 @@ public class Board {
     public bool PutPiece(Cell cell) {
         if (GetPiece(cell) != null) return false;
         var newPiece = new Piece(this, ColorInTurn, cell);
-        Pieces.Add(newPiece);
 
+        if (!IsRegal(newPiece)) return false;
+        Pieces.Add(newPiece);
         newPiece.Work();
 
         ChangeTurn();
         return true;
+    }
+
+    bool IsRegal(Piece newPiece) {
+        var isRegal = false;
+        newPiece.CheckReversible();
+        foreach (var piece in Pieces) {
+            if (piece.IsReversible) isRegal = true;
+            piece.Reset();
+        }
+        return isRegal;
     }
 
     public Piece GetPiece(Cell? cell) {
