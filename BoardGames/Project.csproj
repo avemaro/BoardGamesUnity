@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Board.cs" />
     <Compile Include="Assets\Scripts\Cell.cs" />
+    <Compile Include="Assets\Scripts\Direction.cs" />
     <Compile Include="Assets\Scripts\Piece.cs" />
     <Reference Include="UnityEditor.UI">
       <HintPath>/Users/yamasaki/Documents/GitHub/BoardGamesUnity/BoardGames/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
