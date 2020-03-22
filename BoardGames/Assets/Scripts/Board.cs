@@ -35,6 +35,11 @@ public class Board {
     }
     #endregion
 
+    public void PutPiece(params Cell[] cells) {
+        foreach (var cell in cells)
+            PutPiece(cell);
+    }
+
     public bool PutPiece(Cell cell) {
         if (GetPiece(cell) != null) return false;
         var newPiece = new Piece(this, ColorInTurn, cell);
@@ -46,11 +51,6 @@ public class Board {
         return true;
     }
 
-    void ChangeTurn() {
-        if (ColorInTurn == PieceColor.black) ColorInTurn = PieceColor.white;
-        else if (ColorInTurn == PieceColor.white) ColorInTurn = PieceColor.black;
-    }
-
     public Piece GetPiece(Cell? cell) {
         if (cell == null) return null;
         foreach (var piece in pieces)
@@ -58,4 +58,23 @@ public class Board {
         return null;
     }
 
+    public bool Check(Cell[] blackCells, Cell[] whiteCells) {
+        var noneCells = new List<Cell>(CellExtend.AllCases);
+        foreach (Cell cell in blackCells) {
+            if (GetColor(cell) != PieceColor.black) return false;
+            noneCells.Remove(cell);
+        }
+        foreach (Cell cell in whiteCells) {
+            if (GetColor(cell) != PieceColor.white) return false;
+            noneCells.Remove(cell);
+        }
+        foreach (Cell cell in noneCells)
+            if (GetColor(cell) != PieceColor.none) return false;
+        return true;
+    }
+
+    void ChangeTurn() {
+        if (ColorInTurn == PieceColor.black) ColorInTurn = PieceColor.white;
+        else if (ColorInTurn == PieceColor.white) ColorInTurn = PieceColor.black;
+    }
 }
