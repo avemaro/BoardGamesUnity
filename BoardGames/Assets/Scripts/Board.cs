@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Board {
     List<Piece> pieces = new List<Piece>();
+    public PieceColor ColorInTurn { get; private set; } = PieceColor.black;
 
     public Board() {
         pieces.Add(new Piece(this, PieceColor.black, Cell.d5));
@@ -16,6 +17,10 @@ public class Board {
         var piece = GetPiece(cell);
         if (piece == null) return PieceColor.none;
         return piece.Color;
+    }
+
+    public void PutPiece(Cell cell) {
+
     }
 
     Piece GetPiece(Cell? cell) {
