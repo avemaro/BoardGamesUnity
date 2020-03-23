@@ -43,17 +43,19 @@ public class Board
     public bool PutPiece(Cell cell) {
         if (!IsNone(cell)) return false;
 
-        foreach (var piece in pieces) {
-            if (cell == Cell.d3 && piece.Position == Cell.d4)
-                piece.Reverse();
-            if (cell == Cell.c5 && piece.Position == Cell.d5)
-                piece.Reverse();
-            if (cell == Cell.b6 && piece.Position == Cell.c5)
-                piece.Reverse();
-        }
-
         pieces.Add(new Piece(ColorInTurn, cell));
+
+        if (cell == Cell.d3) GetPiece(Cell.d4).Reverse();
+        if (cell == Cell.c5) GetPiece(Cell.d5).Reverse();
+        if (cell == Cell.b6) GetPiece(Cell.c5).Reverse();
+
         ColorInTurn = ColorInTurn.Reversed();
         return true;
+    }
+
+    public Piece GetPiece(Cell cell) {
+        foreach (var piece in pieces)
+            if (piece.Position == cell) return piece;
+        return null;
     }
 }
