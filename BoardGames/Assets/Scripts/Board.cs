@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Board
 {
-    public Board(params (PieceColor, Cell)[] pieces ) {
+    (PieceColor color, Cell cell)[] pieces;
 
+    public Board(params (PieceColor, Cell)[] pieces ) {
+        this.pieces = pieces;
     }
 
     public PieceColor GetColor(Cell cell) {
-        if (cell == Cell.d5) return PieceColor.black;
-        if (cell == Cell.e4) return PieceColor.black;
-        if (cell == Cell.d4) return PieceColor.white;
-        if (cell == Cell.e5) return PieceColor.white;
+        foreach (var piece in pieces)
+            if (cell == piece.cell) return piece.color;
         return PieceColor.none;
     }
 }
