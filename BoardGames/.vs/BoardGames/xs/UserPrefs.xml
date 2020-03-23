@@ -1,9 +1,27 @@
 ﻿<Properties StartupConfiguration="{9909BA3E-AAE2-D59E-5842-4D1ACA9DA3CB}|">
   <MonoDevelop.Ide.ItemProperties.EditerTests PreferredExecutionTarget="6bd416d7-a65f-46f9-8b65-e675cfaba277" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Tests/EditerTests/ReverseTest.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Board.cs">
     <Files>
-      <File FileName="Assets/Tests/EditerTests/ReverseTest.cs" Line="11" Column="12" />
+      <File FileName="Assets/Scripts/Board.cs" Line="6" Column="2" />
+      <File FileName="Assets/Scripts/PieceColor.cs" />
+      <File FileName="Assets/Tests/EditerTests/ReverseTest.cs" Line="8" Column="2" NotebookId="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="BoardGames" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="Board.cs" selected="True" />
+              </Node>
+              <Node name="Tests" expanded="True">
+                <Node name="EditerTests" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
