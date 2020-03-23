@@ -15,9 +15,14 @@ public class Piece
     }
 
     public void Work() {
-        if (Position == Cell.d3) board.GetPiece(Cell.d4).Reverse();
-        if (Position == Cell.c5) board.GetPiece(Cell.d5).Reverse();
-        if (Position == Cell.b6) board.GetPiece(Cell.c5).Reverse();
+        if (Position == Cell.d3) GetNextPiece(Direction.down).Reverse();
+        if (Position == Cell.c5) GetNextPiece(Direction.right).Reverse();
+        if (Position == Cell.b6) GetNextPiece(Direction.upRight).Reverse();
+    }
+
+    Piece GetNextPiece(Direction direction) {
+        var nextCell = Position.Next(direction);
+        return board.GetPiece(nextCell);
     }
 
     public void Reverse() {
