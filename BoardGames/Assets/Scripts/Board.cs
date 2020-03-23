@@ -20,14 +20,25 @@ public class Board
         this.pieces = new List<(PieceColor color, Cell cell)>(pieces);
     }
 
+    #region color
     public PieceColor GetColor(Cell cell) {
         foreach (var piece in pieces)
             if (cell == piece.cell) return piece.color;
         return PieceColor.none;
     }
+    public bool IsNone(Cell cell) {
+        return GetColor(cell) == PieceColor.none;
+    }
+    public bool IsBlack(Cell cell) {
+        return GetColor(cell) == PieceColor.none;
+    }
+    public bool IsWhite(Cell cell) {
+        return GetColor(cell) == PieceColor.none;
+    }
+    #endregion
 
     public bool PutPiece(Cell cell) {
-        if (GetColor(cell) != PieceColor.none) return false;
+        if (!IsNone(cell)) return false;
         pieces.Add((ColorInTurn, cell));
         ColorInTurn = ColorInTurn.Reversed();
         return true;
