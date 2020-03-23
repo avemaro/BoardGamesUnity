@@ -30,15 +30,27 @@ public class Board
         return GetColor(cell) == PieceColor.none;
     }
     public bool IsBlack(Cell cell) {
-        return GetColor(cell) == PieceColor.none;
+        return GetColor(cell) == PieceColor.black;
     }
     public bool IsWhite(Cell cell) {
-        return GetColor(cell) == PieceColor.none;
+        return GetColor(cell) == PieceColor.white;
     }
     #endregion
 
     public bool PutPiece(Cell cell) {
         if (!IsNone(cell)) return false;
+
+        for (var i = 0; i < pieces.Count; i++) {
+            var piece = pieces[i];
+            if (cell == Cell.d3 && piece.cell == Cell.d4)
+                pieces[i] = (PieceColor.black, Cell.d4);
+            if (cell == Cell.c5 && piece.cell == Cell.d5)
+                pieces[i] = (PieceColor.white, Cell.d5);
+            if (cell == Cell.b6 && piece.cell == Cell.c5)
+                pieces[i] = (PieceColor.black, Cell.c5);
+        }
+
+
         pieces.Add((ColorInTurn, cell));
         ColorInTurn = ColorInTurn.Reversed();
         return true;
