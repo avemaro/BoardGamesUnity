@@ -27,8 +27,9 @@ public class Board
     }
 
     public bool PutPiece(Cell cell) {
+        if (GetColor(cell) != PieceColor.none) return false;
         pieces.Add((ColorInTurn, cell));
         ColorInTurn = ColorInTurn.Reversed();
-        return false;
+        return true;
     }
 }
