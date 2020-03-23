@@ -23,13 +23,13 @@ namespace Tests
         [Test]
         public void Test2_PutPieceAlternately() {
             var board = new Board();
-            Assert.AreEqual(board.ColorInTurn, PieceColor.black);
+            Assert.AreEqual(PieceColor.black, board.ColorInTurn);
             board.PutPiece(Cell.d3);
             Assert.AreEqual(PieceColor.black, board.GetColor(Cell.d3));
-            Assert.AreEqual(board.ColorInTurn, PieceColor.white);
+            Assert.AreEqual(PieceColor.white, board.ColorInTurn);
             board.PutPiece(Cell.c5);
             Assert.AreEqual(PieceColor.white, board.GetColor(Cell.c5));
-            Assert.AreEqual(board.ColorInTurn, PieceColor.black);
+            Assert.AreEqual(PieceColor.black, board.ColorInTurn);
         }
     }
 }

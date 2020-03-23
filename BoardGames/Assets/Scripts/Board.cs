@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Board
 {
-    (PieceColor color, Cell cell)[] pieces;
-    public PieceColor ColorInTurn { get; private set; }
+    List<(PieceColor color, Cell cell)> pieces;
+    public PieceColor ColorInTurn { get; private set; } = PieceColor.black;
 
     public Board() {
-        pieces = new (PieceColor, Cell)[] {
+        pieces = new List<(PieceColor, Cell)> {
             (PieceColor.black, Cell.d5),
             (PieceColor.black, Cell.e4),
             (PieceColor.white, Cell.d4),
@@ -17,7 +17,7 @@ public class Board
     }
 
     public Board(params (PieceColor, Cell)[] pieces ) {
-        this.pieces = pieces;
+        this.pieces = new List<(PieceColor color, Cell cell)>(pieces);
     }
 
     public PieceColor GetColor(Cell cell) {
@@ -27,5 +27,8 @@ public class Board
     }
 
     public void PutPiece(Cell cell) {
+        pieces.Add((ColorInTurn, cell));
+        if (ColorInTurn == PieceColor.black) ColorInTurn = PieceColor.white;
+        else if (ColorInTurn == PieceColor.white) ColorInTurn = PieceColor.black;
     }
 }
