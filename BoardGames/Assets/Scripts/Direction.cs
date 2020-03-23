@@ -9,6 +9,8 @@ public enum Direction {
 }
 
 public static class DirectionExtend {
+    public static Direction[] AllCases = (Direction[])Enum.GetValues(typeof(Direction));
+
     public static (int x, int y) Pos(this Direction direction) {
         switch (direction) {
             case Direction.up: return (0, 1);
