@@ -43,14 +43,13 @@ public class Board
     public bool PutPiece(Cell cell) {
         if (!IsNone(cell)) return false;
 
-        for (var i = 0; i < pieces.Count; i++) {
-            var piece = pieces[i];
+        foreach (var piece in pieces) {
             if (cell == Cell.d3 && piece.Position == Cell.d4)
-                pieces[i] = new Piece(PieceColor.black, Cell.d4);
+                piece.Reverse();
             if (cell == Cell.c5 && piece.Position == Cell.d5)
-                pieces[i] = new Piece(PieceColor.white, Cell.d5);
+                piece.Reverse();
             if (cell == Cell.b6 && piece.Position == Cell.c5)
-                pieces[i] = new Piece(PieceColor.black, Cell.c5);
+                piece.Reverse();
         }
 
         pieces.Add(new Piece(ColorInTurn, cell));

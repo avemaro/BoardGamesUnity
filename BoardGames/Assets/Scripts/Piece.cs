@@ -11,4 +11,8 @@ public class Piece
         Color = color;
         Position = position;
     }
+
+    public void Reverse() {
+        Color = Color.Reversed();
+    }
 }
