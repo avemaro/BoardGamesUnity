@@ -18,22 +18,21 @@ public class Piece {
             var countInRow = 1;
             countInRow += CountSameColorInDirection(direction);
             countInRow += CountSameColorInDirection(direction.Reverse());
-            if (countInRow >= 5) {
-                return true;
-            }
+            if (countInRow >= 5) return true;
         }
         return false;
     }
 
     int CountSameColorInDirection(Direction direction) {
-        var nextCell = Position;
-        var count = 0;
-        while (true) {
-            if (nextCell.Next(direction) == null) break;
-            nextCell = (Cell)nextCell.Next(direction);
-            if (board.GetColor(nextCell) != board.GetColor(Position)) break;
-            count++;
-        }
-        return count;
+        var nextPiece = GetNextPiece(direction);
+        if (nextPiece == null) return 0;
+        if (nextPiece.Color != Color) return 0;
+        return nextPiece.CountSameColorInDirection(direction) + 1;
+    }
+
+    Piece GetNextPiece(Direction direction) {
+        var nextCell = Position.Next(direction);
+        if (nextCell == null) return null;
+        return board.GetPiece(nextCell);
     }
 }

@@ -8,7 +8,7 @@ public class Board {
     public bool IsGameOver { get; private set; }
     public PieceColor Winner { get; private set; } 
 
-    public Piece GetPiece(Cell cell) {
+    public Piece GetPiece(Cell? cell) {
         foreach (var piece in pieces)
             if (piece.Position == cell) return piece;
         return null;
