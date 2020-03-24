@@ -3,31 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Board {
-    Dictionary<Cell, PieceColor> pieces = new Dictionary<Cell, PieceColor>();
+    List<Piece> pieces = new List<Piece>();
     public PieceColor ColorInTurn { get; private set; } = PieceColor.black;
     public bool IsGameOver { get; private set; }
     public PieceColor Winner { get; private set; } 
 
+    public Piece GetPiece(Cell cell) {
+        foreach (var piece in pieces)
+            if (piece.Position == cell) return piece;
+        return null;
+    }
+
     public PieceColor GetColor(Cell cell) {
-        pieces.TryGetValue(cell, out PieceColor color);
-        return color;
+        var piece = GetPiece(cell);
+        if (piece == null) return PieceColor.none;
+        return piece.Color;
     }
 
     public bool PutPiece(Cell cell) {
-        if (pieces.ContainsKey(cell)) return false;
-        pieces.Add(cell, ColorInTurn);
+        if (GetPiece(cell) != null) return false;
+        var newPiece = new Piece(ColorInTurn, cell);
+        pieces.Add(newPiece);
 
-        DecideWinner(cell);
+        DecideWinner(newPiece);
         ColorInTurn = ColorInTurn.Reverse();
 
         return true;
     }
 
-    void DecideWinner(Cell cell) {
+    void DecideWinner(Piece piece) {
         foreach (var direction in DirectionExtend.AllCases) {
             var countInRow = 1;
-            countInRow += CountSameColorInDirection(cell, direction);
-            countInRow += CountSameColorInDirection(cell, direction.Reverse());
+            countInRow += CountSameColorInDirection(piece, direction);
+            countInRow += CountSameColorInDirection(piece, direction.Reverse());
             if (countInRow >= 5) {
                 IsGameOver = true;
                 Winner = ColorInTurn;
@@ -36,13 +44,13 @@ public class Board {
         }
     }
 
-    int CountSameColorInDirection(Cell cell, Direction direction) {
-        var nextCell = cell;
+    int CountSameColorInDirection(Piece piece, Direction direction) {
+        var nextCell = piece.Position;
         var count = 0;
         while (true) {
             if (nextCell.Next(direction) == null) break;
             nextCell = (Cell)nextCell.Next(direction);
-            if (GetColor(nextCell) != GetColor(cell)) break;
+            if (GetColor(nextCell) != GetColor(piece.Position)) break;
             count++;
         }
         return count;
