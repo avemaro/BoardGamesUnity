@@ -22,7 +22,7 @@ public class Board {
 
     public bool PutPiece(Cell cell) {
         if (GetPiece(cell) != null) return false;
-        var newPiece = new Piece(ColorInTurn, cell);
+        var newPiece = new Piece(this, ColorInTurn, cell);
         pieces.Add(newPiece);
 
         DecideWinner(newPiece);
@@ -32,27 +32,9 @@ public class Board {
     }
 
     void DecideWinner(Piece piece) {
-        foreach (var direction in DirectionExtend.AllCases) {
-            var countInRow = 1;
-            countInRow += CountSameColorInDirection(piece, direction);
-            countInRow += CountSameColorInDirection(piece, direction.Reverse());
-            if (countInRow >= 5) {
-                IsGameOver = true;
-                Winner = ColorInTurn;
-                return;
-            }
+        if (piece.Work()) {
+            IsGameOver = true;
+            Winner = ColorInTurn;
         }
-    }
-
-    int CountSameColorInDirection(Piece piece, Direction direction) {
-        var nextCell = piece.Position;
-        var count = 0;
-        while (true) {
-            if (nextCell.Next(direction) == null) break;
-            nextCell = (Cell)nextCell.Next(direction);
-            if (GetColor(nextCell) != GetColor(piece.Position)) break;
-            count++;
-        }
-        return count;
     }
 }
