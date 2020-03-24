@@ -1,0 +1,31 @@
+﻿<Properties StartupConfiguration="{9909BA3E-AAE2-D59E-5842-4D1ACA9DA3CB}|">
+  <MonoDevelop.Ide.ItemProperties.EditerTests PreferredExecutionTarget="6bd416d7-a65f-46f9-8b65-e675cfaba277" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Tests/EditerTests/NewTestScript.cs">
+    <Files>
+      <File FileName="Assets/Scripts/NewBehaviourScript.cs" Line="6" Column="2" />
+      <File FileName="Assets/Tests/EditerTests/NewTestScript.cs" Line="15" Column="46" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="BoardGames" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True" />
+              <Node name="Tests" expanded="True">
+                <Node name="EditerTests" expanded="True">
+                  <Node name="NewTestScript.cs" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
