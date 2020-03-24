@@ -17,6 +17,11 @@ public class Board {
         if (pieces.ContainsKey(cell)) return false;
         pieces.Add(cell, ColorInTurn);
         ColorInTurn = ColorInTurn.Reverse();
+
+        if (GetColor(Cell.d5) != PieceColor.black) return true;
+        IsGameOver = true;
+        Winner = PieceColor.black;
+
         return true;
     }
 }
