@@ -7,15 +7,12 @@ public class Board {
     public PieceColor ColorInTurn { get; private set; } = PieceColor.black;
 
     public PieceColor GetColor(Cell cell) {
-        PieceColor color;
-        if (!pieces.TryGetValue(cell, out color)) return PieceColor.none;
+        pieces.TryGetValue(cell, out PieceColor color);
         return color;
     }
 
     public void PutPiece(Cell cell) {
-        if (cell == Cell.d3) pieces.Add(cell, PieceColor.black);
-        if (cell == Cell.c5) pieces.Add(cell, PieceColor.white);
-        if (ColorInTurn == PieceColor.black) ColorInTurn = PieceColor.white;
-        else if (ColorInTurn == PieceColor.white) ColorInTurn = PieceColor.black;
+        pieces.Add(cell, ColorInTurn);
+        ColorInTurn = ColorInTurn.Reverse();
     }
 }
