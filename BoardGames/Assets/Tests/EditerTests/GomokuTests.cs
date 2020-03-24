@@ -34,5 +34,12 @@ namespace Tests
             Assert.IsNotNull(h8.Next(Direction.left));
             Assert.IsNotNull(h8.Next(Direction.upLeft));
         }
+
+        [Test]
+        public void Test3_BoardHasInitialized() {
+            var board = new Board();
+            foreach (var cell in CellExtend.AllCases)
+                Assert.AreEqual(PieceColr.none, board.GetColor(cell));
+        }
     }
 }
