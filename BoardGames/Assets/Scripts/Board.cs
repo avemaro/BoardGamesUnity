@@ -18,9 +18,23 @@ public class Board {
         pieces.Add(cell, ColorInTurn);
         ColorInTurn = ColorInTurn.Reverse();
 
-        if (GetColor(Cell.d5) != PieceColor.black) return true;
-        IsGameOver = true;
-        Winner = PieceColor.black;
+        if (GetColor(Cell.d1) == PieceColor.black &&
+            GetColor(Cell.d2) == PieceColor.black &&
+            GetColor(Cell.d3) == PieceColor.black &&
+            GetColor(Cell.d4) == PieceColor.black &&
+            GetColor(Cell.d5) == PieceColor.black) {
+            IsGameOver = true;
+            Winner = PieceColor.black;
+        }
+
+        if (GetColor(Cell.a3) == PieceColor.white &&
+            GetColor(Cell.b4) == PieceColor.white &&
+            GetColor(Cell.c5) == PieceColor.white &&
+            GetColor(Cell.d6) == PieceColor.white &&
+            GetColor(Cell.e7) == PieceColor.white) {
+            IsGameOver = true;
+            Winner = PieceColor.white;
+        }
 
         return true;
     }

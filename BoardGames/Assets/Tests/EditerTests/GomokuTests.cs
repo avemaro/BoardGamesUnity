@@ -87,7 +87,7 @@ namespace Tests
         [Test]
         public void Test6_2_5PiecesInRowWinsGame() {
             var board = new Board();
-            Cell[] hands = { Cell.a3, Cell.c5,
+            Cell[] hands = { Cell.a1, Cell.c5,
                              Cell.d2, Cell.d6,
                              Cell.b1, Cell.e7,
                              Cell.d4, Cell.b4,
