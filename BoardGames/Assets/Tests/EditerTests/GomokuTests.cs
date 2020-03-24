@@ -64,5 +64,24 @@ namespace Tests
             Assert.AreEqual(PieceColor.white, board.GetColor(Cell.c5));
             Assert.False(board.PutPiece(Cell.c5));
         }
+
+        [Test]
+        public void Test6_5PiecesInRowWinsGame() {
+            var board = new Board();
+            Cell[] hands = { Cell.d3, Cell.c5,
+                             Cell.d2, Cell.c6,
+                             Cell.d1, Cell.h8,
+                             Cell.d4, Cell.g7};
+            Assert.IsFalse(board.IsGameOver);
+            Assert.AreEqual(PieceColor.none, board.Winner);
+            foreach (var hand in hands) {
+                Assert.True(board.PutPiece(hand));
+                Assert.IsFalse(board.IsGameOver);
+                Assert.AreEqual(PieceColor.none, board.Winner);
+            }
+            Assert.True(board.PutPiece(Cell.d5));
+            Assert.IsTrue(board.IsGameOver);
+            Assert.AreEqual(PieceColor.black, board.Winner);
+        }
     }
 }
