@@ -12,8 +12,9 @@ public class Board {
     }
 
     public bool PutPiece(Cell cell) {
+        if (pieces.ContainsKey(cell)) return false;
         pieces.Add(cell, ColorInTurn);
         ColorInTurn = ColorInTurn.Reverse();
-        return false;
+        return true;
     }
 }
