@@ -18,7 +18,6 @@ public class Board {
         pieces.Add(cell, ColorInTurn);
 
         DecideWinner(cell);
-
         ColorInTurn = ColorInTurn.Reverse();
 
         return true;
@@ -26,26 +25,26 @@ public class Board {
 
     void DecideWinner(Cell cell) {
         foreach (var direction in DirectionExtend.AllCases) {
-            var nextCell = cell;
             var countInRow = 1;
-            while (true) {
-                if (nextCell.Next(direction) == null) break;
-                nextCell = (Cell)nextCell.Next(direction);
-                if (GetColor(nextCell) != GetColor(cell)) break;
-                countInRow++;
-            }
-            nextCell = cell;
-            while (true) {
-                if (nextCell.Next(direction.Reverse()) == null) break;
-                nextCell = (Cell)nextCell.Next(direction.Reverse());
-                if (GetColor(nextCell) != GetColor(cell)) break;
-                countInRow++;
-            }
+            countInRow += CountSameColorInDirection(cell, direction);
+            countInRow += CountSameColorInDirection(cell, direction.Reverse());
             if (countInRow >= 5) {
                 IsGameOver = true;
                 Winner = ColorInTurn;
                 return;
             }
         }
+    }
+
+    int CountSameColorInDirection(Cell cell, Direction direction) {
+        var nextCell = cell;
+        var count = 0;
+        while (true) {
+            if (nextCell.Next(direction) == null) break;
+            nextCell = (Cell)nextCell.Next(direction);
+            if (GetColor(nextCell) != GetColor(cell)) break;
+            count++;
+        }
+        return count;
     }
 }
