@@ -39,7 +39,7 @@ namespace Tests
         public void Test3_BoardHasInitialized() {
             var board = new Board();
             foreach (var cell in CellExtend.AllCases)
-                Assert.AreEqual(PieceColr.none, board.GetColor(cell));
+                Assert.AreEqual(PieceColor.none, board.GetColor(cell));
         }
     }
 }
