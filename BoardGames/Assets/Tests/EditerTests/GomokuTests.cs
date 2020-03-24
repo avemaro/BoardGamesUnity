@@ -87,10 +87,10 @@ namespace Tests
         [Test]
         public void Test6_2_5PiecesInRowWinsGame() {
             var board = new Board();
-            Cell[] hands = { Cell.a1, Cell.c5,
-                             Cell.d2, Cell.d6,
-                             Cell.b1, Cell.e7,
-                             Cell.d4, Cell.b4,
+            Cell[] hands = { Cell.a1, Cell.c6,
+                             Cell.d2, Cell.d7,
+                             Cell.b1, Cell.e8,
+                             Cell.d4, Cell.a4,
                              Cell.g5};
             Assert.IsFalse(board.IsGameOver);
             Assert.AreEqual(PieceColor.none, board.Winner);
@@ -99,7 +99,7 @@ namespace Tests
                 Assert.IsFalse(board.IsGameOver);
                 Assert.AreEqual(PieceColor.none, board.Winner);
             }
-            Assert.True(board.PutPiece(Cell.a3));
+            Assert.True(board.PutPiece(Cell.b5));
             Assert.IsTrue(board.IsGameOver);
             Assert.AreEqual(PieceColor.white, board.Winner);
         }

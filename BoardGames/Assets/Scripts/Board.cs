@@ -18,24 +18,61 @@ public class Board {
         pieces.Add(cell, ColorInTurn);
         ColorInTurn = ColorInTurn.Reverse();
 
-        if (GetColor(Cell.d1) == PieceColor.black &&
-            GetColor(Cell.d2) == PieceColor.black &&
-            GetColor(Cell.d3) == PieceColor.black &&
-            GetColor(Cell.d4) == PieceColor.black &&
-            GetColor(Cell.d5) == PieceColor.black) {
+        DecideWinner(cell);
+
+        return true;
+    }
+
+    void DecideWinner(Cell cell) {
+        var nextCell = cell;
+        var countInRow = 1;
+        while (true) {
+            if (nextCell.Next(Direction.up) == null) break;
+            nextCell = (Cell)nextCell.Next(Direction.up);
+            if (GetColor(nextCell) != GetColor(cell)) break;
+            countInRow++;
+        }
+        nextCell = cell;
+        while (true) {
+            if (nextCell.Next(Direction.down) == null) break;
+            nextCell = (Cell)nextCell.Next(Direction.down);
+            if (GetColor(nextCell) != GetColor(cell)) break;
+            countInRow++;
+        }
+        if (countInRow >= 5) {
             IsGameOver = true;
-            Winner = PieceColor.black;
+            Winner = GetColor(cell);
+            return;
         }
 
-        if (GetColor(Cell.a3) == PieceColor.white &&
-            GetColor(Cell.b4) == PieceColor.white &&
-            GetColor(Cell.c5) == PieceColor.white &&
-            GetColor(Cell.d6) == PieceColor.white &&
-            GetColor(Cell.e7) == PieceColor.white) {
+        countInRow = 1;
+        nextCell = cell;
+        while (true) {
+            if (nextCell.Next(Direction.downRight) == null) break;
+            nextCell = (Cell)nextCell.Next(Direction.downRight);
+            if (GetColor(nextCell) != GetColor(cell)) break;
+            countInRow++;
+        }
+        nextCell = cell;
+        while (true) {
+            if (nextCell.Next(Direction.upLeft) == null) break;
+            nextCell = (Cell)nextCell.Next(Direction.upLeft);
+            if (GetColor(nextCell) != GetColor(cell)) break;
+            countInRow++;
+        }
+
+        if (countInRow >= 5) {
             IsGameOver = true;
             Winner = PieceColor.white;
         }
 
-        return true;
+        //if (GetColor(Cell.a3) == PieceColor.white &&
+        //    GetColor(Cell.b4) == PieceColor.white &&
+        //    GetColor(Cell.c5) == PieceColor.white &&
+        //    GetColor(Cell.d6) == PieceColor.white &&
+        //    GetColor(Cell.e7) == PieceColor.white) {
+        //    IsGameOver = true;
+        //    Winner = PieceColor.white;
+        //}
     }
 }
