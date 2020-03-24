@@ -41,5 +41,17 @@ namespace Tests
             foreach (var cell in CellExtend.AllCases)
                 Assert.AreEqual(PieceColor.none, board.GetColor(cell));
         }
+
+        [Test]
+        public void Test4_PutPieceAlternately() {
+            var board = new Board();
+            Assert.AreEqual(PieceColor.black, board.ColorInTurn);
+            board.PutPiece(Cell.d3);
+            Assert.AreEqual(PieceColor.black, board.GetColor(Cell.d3));
+            Assert.AreEqual(PieceColor.white, board.ColorInTurn);
+            board.PutPiece(Cell.c5);
+            Assert.AreEqual(PieceColor.white, board.GetColor(Cell.c5));
+            Assert.AreEqual(PieceColor.black, board.ColorInTurn);
+        }
     }
 }
