@@ -11,8 +11,9 @@ public class Board {
         return color;
     }
 
-    public void PutPiece(Cell cell) {
+    public bool PutPiece(Cell cell) {
         pieces.Add(cell, ColorInTurn);
         ColorInTurn = ColorInTurn.Reverse();
+        return false;
     }
 }
