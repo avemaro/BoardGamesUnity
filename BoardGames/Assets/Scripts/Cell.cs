@@ -18,40 +18,12 @@ public static class CellExtend {
     public static Cell[] AllCases = (Cell[])Enum.GetValues(typeof(Cell));
 
     public static Cell? Next(this Cell cell, Direction direction) {
-        if (cell.GetFile() == File.a)
-            switch (direction) {
-                case Direction.downLeft:
-                case Direction.left:
-                case Direction.upLeft: return null;
-            }
-        if (cell.GetFile() == File.h)
-            switch (direction) {
-                case Direction.upRight:
-                case Direction.right:
-                case Direction.downRight: return null;
-            }
-        if (cell.GetRank() == Rank.one)
-            switch (direction) {
-                case Direction.up:
-                case Direction.upRight:
-                case Direction.upLeft: return null;
-            }
-        if (cell.GetRank() == Rank.eight)
-            switch (direction) {
-                case Direction.downRight:
-                case Direction.down:
-                case Direction.downLeft: return null;
-            }
-
+        if (cell.GetFile() == File.a && direction.Pos().x == -1) { return null; }
+        if (cell.GetFile() == File.h && direction.Pos().x == 1) { return null; }
+        if (cell.GetRank() == Rank.one && direction.Pos().y == -1) { return null; }
+        if (cell.GetRank() == Rank.eight && direction.Pos().y == 1) { return null; }
         int nextIndex = (int)cell + (int)direction;
         return (Cell)AllCases.GetValue(nextIndex);
-
-        //if (cell.GetFile() == File.a && direction.Pos().x == -1) { return null; }
-        //if (cell.GetFile() == File.h && direction.Pos().x == 1) { return null; }
-        //if (cell.GetRank() == Rank.one && direction.Pos().y == -1) { return null; }
-        //if (cell.GetRank() == Rank.eight && direction.Pos().y == 1) { return null; }
-        //int nextIndex = (int)cell + (int)direction;
-        //return (Cell)AllCases.GetValue(nextIndex);
     }
 
     //    public static Cell? Next(this Cell cell, Direction direction, int distance) {
