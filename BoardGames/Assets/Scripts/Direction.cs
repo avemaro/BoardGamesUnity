@@ -8,22 +8,23 @@ public enum Direction {
     upRight = -7, upLeft = -9, downRight = 9, downLeft = 7
 }
 
-//public static class DirectionExtend {
-//    public static Direction[] AllCases = (Direction[])Enum.GetValues(typeof(Direction));
+public static class DirectionExtend {
+    public static Direction[] AllCases = (Direction[])Enum.GetValues(typeof(Direction));
 
-//    public static (int x, int y) Pos(this Direction direction) {
-//        switch (direction) {
-//            case Direction.up: return (0, -1);
-//            case Direction.upRight: return (1, -1);
-//            case Direction.right: return (1, 0);
-//            case Direction.downRight: return (1, 1);
-//            case Direction.down: return (0, 1);
-//            case Direction.downLeft: return (-1, 1);
-//            case Direction.left: return (-1, 0);
-//            case Direction.upLeft: return (-1, -1);
-//        }
-//        return (0, 0);
-//    }
+    public static (int x, int y) Pos(this Direction direction) {
+        switch (direction) {
+            case Direction.up: return (0, -1);
+            case Direction.upRight: return (1, -1);
+            case Direction.right: return (1, 0);
+            case Direction.downRight: return (1, 1);
+            case Direction.down: return (0, 1);
+            case Direction.downLeft: return (-1, 1);
+            case Direction.left: return (-1, 0);
+            case Direction.upLeft: return (-1, -1);
+        }
+        return (0, 0);
+    }
+}
 
 //    public static Direction Reverse(this Direction direction) {
 //        switch (direction) {

@@ -15,42 +15,38 @@ public enum Cell {
 }
 
 public static class CellExtend {
+    public static Cell[] AllCases = (Cell[])Enum.GetValues(typeof(Cell));
+
     public static Cell? Next(this Cell cell, Direction direction) {
-        return null;
+        if (cell.GetFile() == File.a && direction.Pos().x == -1) { return null; }
+        if (cell.GetFile() == File.h && direction.Pos().x == 1) { return null; }
+        if (cell.GetRank() == Rank.one && direction.Pos().y == -1) { return null; }
+        if (cell.GetRank() == Rank.eight && direction.Pos().y == 1) { return null; }
+        int nextIndex = (int)cell + (int)direction;
+        return (Cell)AllCases.GetValue(nextIndex);
+    }
+
+    //    public static Cell? Next(this Cell cell, Direction direction, int distance) {
+    //        Cell? nextCell = cell;
+    //        for (var i = 0; i < distance; i++) {
+    //            if (nextCell == null) return null;
+    //            nextCell = ((Cell)nextCell).Next(direction);
+    //        }
+    //        return nextCell;
+    //    }
+
+    public enum File { a, b, c, d, e, f, g, h }
+    public static File[] fileArray = new File[]
+        { File.a, File.b, File.c, File.d, File.e, File.f, File.g, File.h };
+    public static File GetFile(this Cell cell) {
+        var div = (int)cell % 8;
+        return fileArray[div];
+    }
+    public enum Rank { one, two, three, four, five, six, seven, eight }
+    public static Rank[] rankArray = new Rank[]
+        {Rank.one, Rank.two, Rank.three, Rank.four, Rank.five, Rank.six, Rank.seven, Rank.eight};
+    public static Rank GetRank(this Cell cell) {
+        var mod = (int)cell / 8;
+        return rankArray[mod];
     }
 }
-//    public static Cell[] AllCases = (Cell[])Enum.GetValues(typeof(Cell));
-
-//    public static Cell? Next(this Cell cell, Direction direction) {
-//        if (cell.GetFile() == File.a && direction.Pos().x == -1) { return null; }
-//        if (cell.GetFile() == File.h && direction.Pos().x == 1) { return null; }
-//        if (cell.GetRank() == Rank.one && direction.Pos().y == -1) { return null; }
-//        if (cell.GetRank() == Rank.eight && direction.Pos().y == 1) { return null; }
-//        int nextIndex = (int)cell + (int)direction;
-//        return (Cell)AllCases.GetValue(nextIndex);
-//    }
-
-//    public static Cell? Next(this Cell cell, Direction direction, int distance) {
-//        Cell? nextCell = cell;
-//        for (var i = 0; i < distance; i++) {
-//            if (nextCell == null) return null;
-//            nextCell = ((Cell)nextCell).Next(direction);
-//        }
-//        return nextCell;
-//    }
-
-//    public enum File { a, b, c, d, e, f, g, h }
-//    public static File[] fileArray = new File[]
-//        { File.a, File.b, File.c, File.d, File.e, File.f, File.g, File.h };
-//    public static File GetFile(this Cell cell) {
-//        var div = (int)cell % 8;
-//        return fileArray[div];
-//    }
-//    public enum Rank { one, two, three, four, five, six, seven, eight }
-//    public static Rank[] rankArray = new Rank[]
-//        {Rank.one, Rank.two, Rank.three, Rank.four, Rank.five, Rank.six, Rank.seven, Rank.eight};
-//    public static Rank GetRank(this Cell cell) {
-//        var mod = (int)cell / 8;
-//        return rankArray[mod];
-//    }
-//}
