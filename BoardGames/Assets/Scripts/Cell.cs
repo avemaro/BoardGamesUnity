@@ -18,18 +18,26 @@ public static class CellExtend {
     public static Cell[] AllCases = (Cell[])Enum.GetValues(typeof(Cell));
 
     public static Cell? Next(this Cell cell, Direction direction) {
-        if (cell == Cell.a1) 
+        if (cell.GetFile() == File.a)
             switch (direction) {
-                case Direction.up:
-                case Direction.upRight:
                 case Direction.downLeft:
                 case Direction.left:
                 case Direction.upLeft: return null;
             }
-        if (cell == Cell.h8)
+        if (cell.GetFile() == File.h)
             switch (direction) {
                 case Direction.upRight:
                 case Direction.right:
+                case Direction.downRight: return null;
+            }
+        if (cell.GetRank() == Rank.one)
+            switch (direction) {
+                case Direction.up:
+                case Direction.upRight:
+                case Direction.upLeft: return null;
+            }
+        if (cell.GetRank() == Rank.eight)
+            switch (direction) {
                 case Direction.downRight:
                 case Direction.down:
                 case Direction.downLeft: return null;
@@ -56,17 +64,13 @@ public static class CellExtend {
     //    }
 
     public enum File { a, b, c, d, e, f, g, h }
-    public static File[] fileArray = new File[]
-        { File.a, File.b, File.c, File.d, File.e, File.f, File.g, File.h };
     public static File GetFile(this Cell cell) {
         var div = (int)cell % 8;
-        return fileArray[div];
+        return ((File[])Enum.GetValues(typeof(File)))[div];
     }
     public enum Rank { one, two, three, four, five, six, seven, eight }
-    public static Rank[] rankArray = new Rank[]
-        {Rank.one, Rank.two, Rank.three, Rank.four, Rank.five, Rank.six, Rank.seven, Rank.eight};
     public static Rank GetRank(this Cell cell) {
         var mod = (int)cell / 8;
-        return rankArray[mod];
+        return ((Rank[])Enum.GetValues(typeof(Rank)))[mod];
     }
 }
