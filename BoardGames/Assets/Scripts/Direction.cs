@@ -1,12 +1,12 @@
-﻿//using System;
-//using System.Collections;
-//using System.Collections.Generic;
-//using UnityEngine;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-//public enum Direction {
-//    up = -8, down = 8, right = 1, left = -1,
-//    upRight = -7, upLeft = -9, downRight = 9, downLeft = 7
-//}
+public enum Direction {
+    up = -8, down = 8, right = 1, left = -1,
+    upRight = -7, upLeft = -9, downRight = 9, downLeft = 7
+}
 
 //public static class DirectionExtend {
 //    public static Direction[] AllCases = (Direction[])Enum.GetValues(typeof(Direction));
