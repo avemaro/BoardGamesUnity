@@ -10,7 +10,7 @@ namespace Tests
     {
         // A Test behaves as an ordinary method
         [Test]
-        public void Test1_a1HasNoCellOnUpAndLeft() {
+        public void Test1_a1HasNoCellOnUpOrLeft() {
             var a1 = Cell.a1;
             Assert.IsNull(a1.Next(Direction.up));
             Assert.IsNull(a1.Next(Direction.upRight));
@@ -23,7 +23,7 @@ namespace Tests
         }
 
         [Test]
-        public void Test2_h8HasNoCellOnUpAndLeft() {
+        public void Test2_h8HasNoCellOnDownOrRight() {
             var h8 = Cell.h8;
             Assert.IsNotNull(h8.Next(Direction.up));
             Assert.IsNull(h8.Next(Direction.upRight));
