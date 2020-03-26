@@ -11,15 +11,13 @@ public class ReverseBoard : Board {
     }
 
     public override bool PutPiece(Cell cell) {
-        if (ColorInTurn == PieceColor.white) return base.PutPiece(cell);
-
         foreach (var direction in DirectionExtend.AllCases) {
             var nextCell = cell.Next(direction);
             if (nextCell == null) continue;
-            if (GetColor((Cell)nextCell) != PieceColor.white) continue;
+            if (GetColor((Cell)nextCell) != ColorInTurn.Reverse()) continue;
             var next2Cell = ((Cell)nextCell).Next(direction);
             if (next2Cell == null) continue;
-            if (GetColor((Cell)next2Cell) != PieceColor.black) continue;
+            if (GetColor((Cell)next2Cell) != ColorInTurn) continue;
             return base.PutPiece(cell);
         }
 
