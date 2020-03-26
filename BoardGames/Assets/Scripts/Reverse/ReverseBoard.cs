@@ -12,9 +12,20 @@ public class ReverseBoard : Board {
 
     public override bool PutPiece(Cell cell) {
         if (ColorInTurn == PieceColor.white) return base.PutPiece(cell);
-        if (cell == Cell.c4 || cell == Cell.d3 ||
-            cell == Cell.e6 || cell == Cell.f5)
+
+        if (cell == Cell.c4 && GetColor(Cell.d4) == PieceColor.white &&
+            GetColor(Cell.e4) == PieceColor.black)
             return base.PutPiece(cell);
+        if (cell == Cell.d3 && GetColor(Cell.d4) == PieceColor.white &&
+            GetColor(Cell.d5) == PieceColor.black)
+            return base.PutPiece(cell);
+        if (cell == Cell.e6 && GetColor(Cell.e5) == PieceColor.white &&
+            GetColor(Cell.e4) == PieceColor.black)
+            return base.PutPiece(cell);
+        if (cell == Cell.f5 && GetColor(Cell.e5) == PieceColor.white &&
+            GetColor(Cell.d5) == PieceColor.black)
+            return base.PutPiece(cell);
+
         return false;
     }
 }
