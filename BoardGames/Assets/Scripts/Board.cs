@@ -5,8 +5,8 @@ using UnityEngine;
 public class Board {
     protected List<Piece> pieces = new List<Piece>();
     public PieceColor ColorInTurn { get; protected set; } = PieceColor.black;
-    public bool IsGameOver { get; private set; }
-    public PieceColor Winner { get; private set; } 
+    public bool IsGameOver { get; protected set; }
+    public PieceColor Winner { get; protected set; } 
 
     public Piece GetPiece(Cell? cell) {
         foreach (var piece in pieces)

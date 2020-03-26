@@ -17,7 +17,6 @@ public class ReverseBoard : Board {
         pieces.Add(newPiece);
         newPiece.Work();
 
-        DecideWinner();
         ColorInTurn = ColorInTurn.Reverse();
         if (NoCellToPut()) ColorInTurn = ColorInTurn.Reverse();
 
@@ -29,6 +28,7 @@ public class ReverseBoard : Board {
             if (!IsNone(cell)) continue;
             var newPiece = new ReversePiece(this, ColorInTurn, cell);
             if (IsRegal(newPiece)) return false;
+
         }
         return true;
     }
@@ -42,6 +42,19 @@ public class ReverseBoard : Board {
             piece.Reset();
         }
         return isRegal;
+    }
+
+    protected override void DecideWinner() {
+        IsGameOver = true;
+        int numberOfblack = 0;
+        int numberOfwhite = 0;
+        foreach (var piece in pieces) {
+            if (piece.Color == PieceColor.black) numberOfblack++;
+            if (piece.Color == PieceColor.white) numberOfwhite++;
+        }
+        if (numberOfblack > numberOfwhite) Winner = PieceColor.black;
+        if (numberOfblack < numberOfwhite) Winner = PieceColor.white;
+        if (numberOfblack == numberOfwhite) Winner = PieceColor.none;
     }
 
     public void Reverse() {
