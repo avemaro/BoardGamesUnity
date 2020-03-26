@@ -19,6 +19,16 @@ public class Board {
         if (piece == null) return PieceColor.none;
         return piece.Color;
     }
+    public bool IsBlack(Cell cell) {
+        return GetColor(cell) == PieceColor.black;
+    }
+    public bool IsWhite(Cell cell) {
+        return GetColor(cell) == PieceColor.white;
+    }
+    public bool IsNone(Cell cell) {
+        return GetColor(cell) == PieceColor.none;
+    }
+
 
     public virtual bool PutPiece(Cell cell) {
         if (GetPiece(cell) != null) return false;
