@@ -50,5 +50,21 @@ namespace Tests
             Assert.True(board.IsWhite(Cell.c5));
             Assert.True(board.IsWhite(Cell.d5));
         }
+
+        [Test]
+        public void Test5_PiecesHasReversed() {
+            var board = new ReverseBoard();
+            var blackCells = new Cell[] { Cell.b6, Cell.c5, Cell.d3, Cell.d4, Cell.e4 };
+            var whiteCells = new Cell[] { Cell.d5, Cell.e5 };
+            Assert.False(board.Check(blackCells, whiteCells));
+            foreach (var cell in new Cell[]{ Cell.d3, Cell.c5, Cell.b6})
+                board.PutPiece(cel);
+            Assert.True(board.Check(blackCells, whiteCells));
+
+            board.PutPiece(Cell.d2);
+            blackCells = new Cell[] { Cell.b6, Cell.c5, Cell.e4 };
+            whiteCells = new Cell[] { Cell.d5, Cell.d4, Cell.d3, Cell.d2, Cell.e5 };
+            Assert.True(board.Check(blackCells, whiteCells));
+        }
     }
 }
