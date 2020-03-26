@@ -11,8 +11,7 @@ public class ReverseBoard : Board {
     }
 
     public override bool PutPiece(Cell cell) {
-
-
+        if (ColorInTurn == PieceColor.white) return base.PutPiece(cell);
         if (cell == Cell.c4 || cell == Cell.d3 ||
             cell == Cell.e6 || cell == Cell.f5)
             return base.PutPiece(cell);
