@@ -30,7 +30,7 @@ public class Piece {
         return nextPiece.CountSameColorInDirection(direction) + 1;
     }
 
-    Piece GetNextPiece(Direction direction) {
+    public Piece GetNextPiece(Direction direction) {
         var nextCell = Position.Next(direction);
         if (nextCell == null) return null;
         return board.GetPiece(nextCell);

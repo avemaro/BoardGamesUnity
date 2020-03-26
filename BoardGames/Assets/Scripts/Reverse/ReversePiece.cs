@@ -9,12 +9,12 @@ public class ReversePiece : Piece {
 
     public bool CheckReversible() {
         foreach (var direction in DirectionExtend.AllCases) {
-            var nextCell = Position.Next(direction);
-            if (nextCell == null) continue;
-            if (board.GetColor((Cell)nextCell) != Color.Reverse()) continue;
-            var next2Cell = ((Cell)nextCell).Next(direction);
-            if (next2Cell == null) continue;
-            if (board.GetColor((Cell)next2Cell) != Color) continue;
+            var nextPiece = GetNextPiece(direction);
+            if (nextPiece == null) continue;
+            if (nextPiece.Color != Color.Reverse()) continue;
+            var next2Piece = nextPiece.GetNextPiece(direction);
+            if (next2Piece == null) continue;
+            if (next2Piece.Color != Color) continue;
             return true;
         }
         return false;
