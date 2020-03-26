@@ -9,4 +9,11 @@ public class ReverseBoard : Board {
         PutPiece(Cell.e4);
         PutPiece(Cell.e5);
     }
+
+    public override bool PutPiece(Cell cell) {
+        if (cell == Cell.c4 || cell == Cell.d3 ||
+            cell == Cell.e6 || cell == Cell.f5)
+            return base.PutPiece(cell);
+        return false;
+    }
 }

@@ -1,12 +1,13 @@
 ﻿<Properties StartupConfiguration="{9909BA3E-AAE2-D59E-5842-4D1ACA9DA3CB}|">
   <MonoDevelop.Ide.ItemProperties.EditerTests PreferredExecutionTarget="6bd416d7-a65f-46f9-8b65-e675cfaba277" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Board.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Reverse/ReverseBoard.cs">
     <Files>
-      <File FileName="Assets/Scripts/Cell.cs" Line="52" Column="2" />
+      <File FileName="Assets/Scripts/Cell.cs" Line="10" Column="36" />
       <File FileName="Assets/Scripts/Direction.cs" Line="40" Column="2" />
       <File FileName="Assets/Scripts/Board.cs" Line="10" Column="1" />
-      <File FileName="Assets/Tests/EditerTests/GomokuTests.cs" Line="108" Column="1" NotebookId="1" />
-      <File FileName="Assets/Tests/EditerTests/ReverseTests.cs" Line="19" Column="2" NotebookId="1" />
+      <File FileName="Assets/Scripts/Reverse/ReverseBoard.cs" Line="13" Column="8" />
+      <File FileName="Assets/Tests/EditerTests/GomokuTests.cs" Line="45" Column="1" NotebookId="1" />
+      <File FileName="Assets/Tests/EditerTests/ReverseTests.cs" Line="39" Column="1" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">

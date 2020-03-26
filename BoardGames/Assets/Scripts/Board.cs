@@ -20,7 +20,7 @@ public class Board {
         return piece.Color;
     }
 
-    public bool PutPiece(Cell cell) {
+    public virtual bool PutPiece(Cell cell) {
         if (GetPiece(cell) != null) return false;
         var newPiece = new Piece(this, ColorInTurn, cell);
         pieces.Add(newPiece);
