@@ -19,6 +19,7 @@ public class ReverseBoard : Board {
 
         ColorInTurn = ColorInTurn.Reverse();
         if (NoCellToPut()) ColorInTurn = ColorInTurn.Reverse();
+        if (NoCellToPut()) DecideWinner();
 
         return true;
     }
