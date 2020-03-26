@@ -59,11 +59,13 @@ namespace Tests
             Assert.False(board.Check(blackCells, whiteCells));
             foreach (var cell in new Cell[]{ Cell.d3, Cell.c5, Cell.b6})
                 board.PutPiece(cell);
+            board.PrintBoard();
             Assert.True(board.Check(blackCells, whiteCells));
 
             board.PutPiece(Cell.d2);
             blackCells = new Cell[] { Cell.b6, Cell.c5, Cell.e4 };
             whiteCells = new Cell[] { Cell.d5, Cell.d4, Cell.d3, Cell.d2, Cell.e5 };
+            board.PrintBoard();
             Assert.True(board.Check(blackCells, whiteCells));
         }
     }

@@ -23,8 +23,21 @@ public class ReverseBoard : Board {
         return true;
     }
 
-    protected bool IsRegal(ReversePiece newPiece) {
+    bool IsRegal(ReversePiece newPiece) {
         if (!base.IsRegal(newPiece)) return false;
-        return newPiece.CheckReversible();
+        var isRegal = false;
+        newPiece.CheckReversible();
+        foreach (ReversePiece piece in pieces) {
+            if (piece.IsReversible) isRegal = true;
+            piece.Reset();
+        }
+        return isRegal;
+    }
+
+    public void Reverse() {
+        foreach (ReversePiece piece in pieces) {
+            if (piece.IsReversible) piece.Reverse();
+            piece.Reset();
+        }
     }
 }

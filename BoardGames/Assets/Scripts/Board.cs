@@ -68,4 +68,15 @@ public class Board {
                 Winner = ColorInTurn;
             }
     }
+
+    public void PrintBoard() {
+        for (var rank = 0; rank < 8; rank++) {
+            string log = "";
+            for (var file = 0; file < 8; file++) {
+                Cell cell = (Cell)CellExtend.AllCases.GetValue((rank * 8) + file);
+                log += GetColor(cell).GetString();
+            }
+            Debug.Log(log);
+        }
+    }
 }
