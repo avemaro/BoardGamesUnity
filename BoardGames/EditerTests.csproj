@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Tests\EditerTests\GomokuTests.cs" />
+    <Compile Include="Assets\Tests\EditerTests\ReverseTests.cs" />
     <Reference Include="UnityEngine.TestRunner">
       <HintPath>/Users/yamasaki/Documents/GitHub/BoardGamesUnity/BoardGames/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
     </Reference>
