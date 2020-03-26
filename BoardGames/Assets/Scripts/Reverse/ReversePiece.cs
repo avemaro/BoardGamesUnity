@@ -7,6 +7,7 @@ public class ReversePiece : Piece {
         : base(board, color, position) {
     }
 
-    //public override bool Work() {
-    //}
+    public override void Work() {
+
+    }
 }

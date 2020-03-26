@@ -31,10 +31,10 @@ public class Board {
 
 
     public virtual bool PutPiece(Cell cell) {
-        if (GetPiece(cell) != null) return false;
         var newPiece = new Piece(this, ColorInTurn, cell);
-        pieces.Add(newPiece);
 
+        if (!IsRegal(newPiece)) return false;
+        pieces.Add(newPiece);
         newPiece.Work();
 
         DecideWinner();
@@ -43,7 +43,11 @@ public class Board {
         return true;
     }
 
-    void DecideWinner() {
+    protected virtual bool IsRegal(Piece newPiece) {
+        return GetPiece(newPiece.Position) == null;
+    }
+
+    protected virtual void DecideWinner() {
         foreach (var piece in pieces)
             if (piece.IsGomoku) {
                 IsGameOver = true;
