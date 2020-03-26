@@ -11,17 +11,28 @@ public class ReverseBoard : Board {
     }
 
     //public override bool PutPiece(Cell cell) {
+    //    var newPiece = new ReversePiece(this, ColorInTurn, cell);
 
-        //foreach (var direction in DirectionExtend.AllCases) {
-        //    var nextCell = cell.Next(direction);
-        //    if (nextCell == null) continue;
-        //    if (GetColor((Cell)nextCell) != ColorInTurn.Reverse()) continue;
-        //    var next2Cell = ((Cell)nextCell).Next(direction);
-        //    if (next2Cell == null) continue;
-        //    if (GetColor((Cell)next2Cell) != ColorInTurn) continue;
-        //    return base.PutPiece(cell);
-        //}
+    //    if (!IsRegal(newPiece)) return false;
+    //    pieces.Add(newPiece);
+    //    newPiece.Work();
 
-        //return false;
+    //    DecideWinner();
+    //    ColorInTurn = ColorInTurn.Reverse();
+
+    //    return true;
     //}
+
+    protected override bool IsRegal(Piece newPiece) {
+        foreach (var direction in DirectionExtend.AllCases) {
+            var nextCell = newPiece.Position.Next(direction);
+            if (nextCell == null) continue;
+            if (GetColor((Cell)nextCell) != ColorInTurn.Reverse()) continue;
+            var next2Cell = ((Cell)nextCell).Next(direction);
+            if (next2Cell == null) continue;
+            if (GetColor((Cell)next2Cell) != ColorInTurn) continue;
+            return true;
+        }
+        return false;
+    }
 }
