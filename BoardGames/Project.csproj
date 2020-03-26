@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\Direction.cs" />
     <Compile Include="Assets\Scripts\Piece.cs" />
     <Compile Include="Assets\Scripts\PieceColor.cs" />
+    <Compile Include="Assets\Scripts\Reverse\ReverseBoard.cs" />
     <Reference Include="UnityEditor.UI">
       <HintPath>/Users/yamasaki/Documents/GitHub/BoardGamesUnity/BoardGames/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
