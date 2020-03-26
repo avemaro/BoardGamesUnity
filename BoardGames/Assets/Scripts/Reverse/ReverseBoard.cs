@@ -16,17 +16,13 @@ public class ReverseBoard : Board {
         if (ColorInTurn == PieceColor.white) return true;
 
         var cell = newPiece.Position;
-        if (cell == Cell.c4 && GetColor(Cell.d4) == PieceColor.white &&
-            GetColor(Cell.e4) == PieceColor.black)
+        if (cell == Cell.c4 && IsWhite(Cell.d4) && IsBlack(Cell.e4))
             return true;
-        if (cell == Cell.d3 && GetColor(Cell.d4) == PieceColor.white &&
-            GetColor(Cell.d5) == PieceColor.black)
+        if (cell == Cell.d3 && IsWhite(Cell.d4) && IsBlack(Cell.d5))
             return true;
-        if (cell == Cell.e6 && GetColor(Cell.e5) == PieceColor.white &&
-            GetColor(Cell.e4) == PieceColor.black)
+        if (cell == Cell.e6 && IsWhite(Cell.e5) && IsBlack(Cell.e4))
             return true;
-        if (cell == Cell.f5 && GetColor(Cell.e5) == PieceColor.white &&
-            GetColor(Cell.d5) == PieceColor.black)
+        if (cell == Cell.f5 && IsWhite(Cell.e5) && IsBlack(Cell.d5))
             return true;
         return false;
     }
