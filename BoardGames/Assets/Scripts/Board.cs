@@ -29,6 +29,21 @@ public class Board {
         return GetColor(cell) == PieceColor.none;
     }
 
+    public bool Check(Cell[] blackCells, Cell[] whiteCells) {
+        var noneCells = new List<Cell>(CellExtend.AllCases);
+        foreach (Cell cell in blackCells) {
+            if (GetColor(cell) != PieceColor.black) return false;
+            noneCells.Remove(cell);
+        }
+        foreach (Cell cell in whiteCells) {
+            if (GetColor(cell) != PieceColor.white) return false;
+            noneCells.Remove(cell);
+        }
+        foreach (Cell cell in noneCells)
+            if (GetColor(cell) != PieceColor.none) return false;
+        return true;
+    }
+
     public virtual bool PutPiece(Cell cell) {
         var newPiece = new Piece(this, ColorInTurn, cell);
 
