@@ -35,16 +35,19 @@ public class Board {
         var newPiece = new Piece(this, ColorInTurn, cell);
         pieces.Add(newPiece);
 
-        DecideWinner(newPiece);
+        newPiece.Work();
+
+        DecideWinner();
         ColorInTurn = ColorInTurn.Reverse();
 
         return true;
     }
 
-    void DecideWinner(Piece piece) {
-        if (piece.Work()) {
-            IsGameOver = true;
-            Winner = ColorInTurn;
-        }
+    void DecideWinner() {
+        foreach (var piece in pieces)
+            if (piece.IsGomoku) {
+                IsGameOver = true;
+                Winner = ColorInTurn;
+            }
     }
 }
