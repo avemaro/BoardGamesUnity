@@ -19,7 +19,17 @@ public class ReverseBoard : Board {
 
         DecideWinner();
         ColorInTurn = ColorInTurn.Reverse();
+        if (NoCellToPut()) ColorInTurn = ColorInTurn.Reverse();
 
+        return true;
+    }
+
+    bool NoCellToPut() {
+        foreach (var cell in CellExtend.AllCases) {
+            if (!IsNone(cell)) continue;
+            var newPiece = new ReversePiece(this, ColorInTurn, cell);
+            if (IsRegal(newPiece)) return false;
+        }
         return true;
     }
 
