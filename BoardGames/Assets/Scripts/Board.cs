@@ -29,7 +29,6 @@ public class Board {
         return GetColor(cell) == PieceColor.none;
     }
 
-
     public virtual bool PutPiece(Cell cell) {
         var newPiece = new Piece(this, ColorInTurn, cell);
 
