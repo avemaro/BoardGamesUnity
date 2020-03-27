@@ -45,15 +45,26 @@ public class Board {
     }
 
     public virtual bool PutPiece(Cell cell) {
-        var newPiece = new Piece(this, ColorInTurn, cell);
+        var newPiece = CreatePiece(cell);
 
         if (!IsRegal(newPiece)) return false;
         pieces.Add(newPiece);
         newPiece.Work();
 
-        DecideWinner();
         ColorInTurn = ColorInTurn.Reverse();
+        if (NoCellToPut()) ColorInTurn = ColorInTurn.Reverse();
+        DecideWinner();
 
+        return true;
+    }
+
+    protected bool NoCellToPut() {
+        foreach (var cell in CellExtend.AllCases) {
+            if (!IsNone(cell)) continue;
+            var newPiece = CreatePiece(cell);
+            if (IsRegal(newPiece)) return false;
+
+        }
         return true;
     }
 
@@ -65,8 +76,12 @@ public class Board {
         foreach (var piece in pieces)
             if (piece.IsGomoku) {
                 IsGameOver = true;
-                Winner = ColorInTurn;
+                Winner = piece.Color;
             }
+    }
+
+    protected virtual Piece CreatePiece(Cell cell) {
+        return new Piece(this, ColorInTurn, cell);
     }
 
     public void PrintBoard() {

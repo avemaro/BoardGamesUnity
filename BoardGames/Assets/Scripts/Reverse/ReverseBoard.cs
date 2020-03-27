@@ -10,34 +10,10 @@ public class ReverseBoard : Board {
         pieces.Add(new ReversePiece(this, PieceColor.white, Cell.e5));
     }
 
-    public override bool PutPiece(Cell cell) {
-        var newPiece = new ReversePiece(this, ColorInTurn, cell);
-
-        if (!IsRegal(newPiece)) return false;
-        pieces.Add(newPiece);
-        newPiece.Work();
-
-        ColorInTurn = ColorInTurn.Reverse();
-        if (NoCellToPut()) ColorInTurn = ColorInTurn.Reverse();
-        if (NoCellToPut()) DecideWinner();
-
-        return true;
-    }
-
-    bool NoCellToPut() {
-        foreach (var cell in CellExtend.AllCases) {
-            if (!IsNone(cell)) continue;
-            var newPiece = new ReversePiece(this, ColorInTurn, cell);
-            if (IsRegal(newPiece)) return false;
-
-        }
-        return true;
-    }
-
-    bool IsRegal(ReversePiece newPiece) {
+    protected override bool IsRegal(Piece newPiece) {
         if (!base.IsRegal(newPiece)) return false;
         var isRegal = false;
-        newPiece.CheckReversible();
+        ((ReversePiece)newPiece).CheckReversible();
         foreach (ReversePiece piece in pieces) {
             if (piece.IsReversible) isRegal = true;
             piece.Reset();
@@ -46,6 +22,7 @@ public class ReverseBoard : Board {
     }
 
     protected override void DecideWinner() {
+        if (!NoCellToPut()) return;
         IsGameOver = true;
         int numberOfblack = 0;
         int numberOfwhite = 0;
@@ -63,5 +40,9 @@ public class ReverseBoard : Board {
             if (piece.IsReversible) piece.Reverse();
             piece.Reset();
         }
+    }
+
+    protected override Piece CreatePiece(Cell cell) {
+        return new ReversePiece(this, ColorInTurn, cell);
     }
 }
