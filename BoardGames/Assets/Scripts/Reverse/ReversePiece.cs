@@ -16,16 +16,10 @@ public class ReversePiece : Piece {
 
     public void CheckReversible() {
         foreach (var direction in DirectionExtend.AllCases) {
-            var nextPiece = GetNextPiece(direction);
+            var nextPiece = (ReversePiece)GetNextPiece(direction);
             if (nextPiece == null) continue;
             nextPiece.CheckReversible(Color, direction);
         }
-    }
-
-    public new ReversePiece GetNextPiece(Direction direction) {
-        var nextCell = Position.Next(direction);
-        if (nextCell == null) return null;
-        return (ReversePiece)board.GetPiece(nextCell);
     }
 
     public void Reset() {
@@ -39,11 +33,11 @@ public class ReversePiece : Piece {
 
     void CheckReversible(PieceColor color, Direction direction) {
         if (color.IsSame(Color)) {
-            var nextPiece = GetNextPiece(direction.Reverse());
+            var nextPiece = (ReversePiece)GetNextPiece(direction.Reverse());
             if (nextPiece == null) return;
             nextPiece.MarkReversible(color, direction.Reverse());
         } else if (color.IsOpposite(Color)) {
-            var nextPiece = GetNextPiece(direction);
+            var nextPiece = (ReversePiece)GetNextPiece(direction);
             if (nextPiece == null) return;
             nextPiece.CheckReversible(color, direction);
         }
@@ -52,7 +46,7 @@ public class ReversePiece : Piece {
     void MarkReversible(PieceColor color, Direction direction) {
         if (!color.IsOpposite(Color)) return;
         IsReversible = true;
-        var nextPiece = GetNextPiece(direction);
+        var nextPiece = (ReversePiece)GetNextPiece(direction);
         if (nextPiece == null) return;
         nextPiece.MarkReversible(color, direction);
     }

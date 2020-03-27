@@ -1,14 +1,14 @@
 ﻿<Properties StartupConfiguration="{9909BA3E-AAE2-D59E-5842-4D1ACA9DA3CB}|">
   <MonoDevelop.Ide.ItemProperties.EditerTests PreferredExecutionTarget="0bef3fd5-dbd9-4230-8690-ab3d92bbdc76" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Reverse/ReverseBoard.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Piece.cs">
     <Files>
-      <File FileName="Assets/Scripts/Piece.cs" Line="39" Column="1" />
-      <File FileName="Assets/Scripts/Reverse/ReversePiece.cs" />
-      <File FileName="Assets/Scripts/Board.cs" Line="83" Column="1" />
+      <File FileName="Assets/Scripts/Piece.cs" Line="5" Column="21" />
+      <File FileName="Assets/Scripts/Board.cs" Line="40" Column="36" />
       <File FileName="Assets/Scripts/PieceColor.cs" />
       <File FileName="Assets/Tests/EditerTests/GomokuTests.cs" />
       <File FileName="Assets/Tests/EditerTests/ReverseTests.cs" Line="96" Column="30" NotebookId="1" />
-      <File FileName="Assets/Scripts/Reverse/ReverseBoard.cs" Line="17" Column="30" NotebookId="1" />
+      <File FileName="Assets/Scripts/Reverse/ReverseBoard.cs" Line="16" Column="23" NotebookId="1" />
+      <File FileName="Assets/Scripts/Reverse/ReversePiece.cs" Line="59" Column="2" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
