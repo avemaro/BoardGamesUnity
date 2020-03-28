@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Board {
-    List<Piece> pieces = new List<Piece>();
+    protected List<Piece> pieces = new List<Piece>();
     public PieceColor ColorInTurn { get; private set; } = PieceColor.black;
     public bool IsGameOver { get; private set; }
     public PieceColor Winner { get; private set; } 
@@ -21,8 +21,8 @@ public class Board {
     }
 
     public bool PutPiece(Cell cell) {
-        if (GetPiece(cell) != null) return false;
-        var newPiece = new Piece(this, ColorInTurn, cell);
+        var newPiece = CreatePiece(cell);
+        if (!newPiece.IsRegal()) return false;
         pieces.Add(newPiece);
 
         DecideWinner(newPiece);
@@ -36,5 +36,9 @@ public class Board {
             IsGameOver = true;
             Winner = ColorInTurn;
         }
+    }
+
+    protected virtual Piece CreatePiece(Cell cell) {
+        return new Piece(this, ColorInTurn, cell);
     }
 }

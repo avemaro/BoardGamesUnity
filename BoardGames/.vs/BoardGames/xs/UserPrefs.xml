@@ -1,20 +1,16 @@
 ﻿<Properties StartupConfiguration="{9909BA3E-AAE2-D59E-5842-4D1ACA9DA3CB}|">
-  <MonoDevelop.Ide.ItemProperties.EditerTests PreferredExecutionTarget="6bd416d7-a65f-46f9-8b65-e675cfaba277" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Board.cs">
+  <MonoDevelop.Ide.ItemProperties.EditerTests PreferredExecutionTarget="96e11aed-91d2-4fb5-abd2-13b16177fed7" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Reverse/ReverseBoard.cs">
     <Files>
       <File FileName="Assets/Scripts/Cell.cs" Line="52" Column="2" />
-      <File FileName="Assets/Scripts/Direction.cs" Line="40" Column="2" />
-      <File FileName="Assets/Scripts/Board.cs" Line="10" Column="1" />
+      <File FileName="Assets/Scripts/PieceColor.cs" Line="12" Column="64" />
+      <File FileName="Assets/Tests/EditerTests/ReverseTests.cs" Line="38" Column="1" />
+      <File FileName="Assets/Scripts/Reverse/ReversePiece.cs" Line="11" Column="1" />
+      <File FileName="Assets/Scripts/Reverse/ReverseBoard.cs" Line="15" Column="6" />
       <File FileName="Assets/Tests/EditerTests/GomokuTests.cs" Line="108" Column="1" NotebookId="1" />
-      <File FileName="Assets/Tests/EditerTests/ReverseTests.cs" Line="19" Column="2" NotebookId="1" />
+      <File FileName="Assets/Scripts/Board.cs" Line="39" Column="6" NotebookId="1" />
+      <File FileName="Assets/Scripts/Piece.cs" Line="6" Column="14" NotebookId="1" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="BoardGames" expanded="True" selected="True" />
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Piece {
-    Board board;
+    protected Board board;
     public PieceColor Color { get; private set; }
     public Cell Position { get; private set; }
 
@@ -23,6 +23,10 @@ public class Piece {
         return false;
     }
 
+    public virtual bool IsRegal() {
+        return board.GetPiece(Position) == null;
+    }
+
     int CountSameColorInDirection(Direction direction) {
         var nextPiece = GetNextPiece(direction);
         if (nextPiece == null) return 0;
@@ -30,7 +34,7 @@ public class Piece {
         return nextPiece.CountSameColorInDirection(direction) + 1;
     }
 
-    Piece GetNextPiece(Direction direction) {
+    protected Piece GetNextPiece(Direction direction) {
         var nextCell = Position.Next(direction);
         if (nextCell == null) return null;
         return board.GetPiece(nextCell);

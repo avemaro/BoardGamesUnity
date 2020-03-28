@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class ReverseBoard : Board {
     public ReverseBoard() {
-        PutPiece(Cell.d5);
-        PutPiece(Cell.d4);
-        PutPiece(Cell.e4);
-        PutPiece(Cell.e5);
+        pieces.Add(new ReversePiece(this, PieceColor.black, Cell.d5));
+        pieces.Add(new ReversePiece(this, PieceColor.black, Cell.e4));
+        pieces.Add(new ReversePiece(this, PieceColor.white, Cell.d4));
+        pieces.Add(new ReversePiece(this, PieceColor.white, Cell.e5));
+    }
+
+    protected override Piece CreatePiece(Cell cell) {
+        return new ReversePiece(this, ColorInTurn, cell);
     }
 }
