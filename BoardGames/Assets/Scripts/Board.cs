@@ -25,7 +25,24 @@ public class Board {
     public bool IsWhite(Cell cell) {
         return GetColor(cell) == PieceColor.white;
     }
+    public bool IsNone(Cell cell) {
+        return GetColor(cell) == PieceColor.none;
+    }
 
+    public bool Check(Cell[] blackCells, Cell[] whiteCells) {
+        var noneCells = new List<Cell>(CellExtend.AllCases);
+        foreach (Cell cell in blackCells) {
+            if (!IsBlack(cell)) return false;
+            noneCells.Remove(cell);
+        }
+        foreach (Cell cell in whiteCells) {
+            if (!IsWhite(cell)) return false;
+            noneCells.Remove(cell);
+        }
+        foreach (Cell cell in noneCells)
+            if (!IsNone(cell)) return false;
+        return true;
+    }
     public bool PutPiece(Cell cell) {
         var newPiece = CreatePiece(cell);
         if (!newPiece.IsRegal()) return false;
