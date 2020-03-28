@@ -6,6 +6,7 @@ public class Piece {
     protected Board board;
     public PieceColor Color { get; protected set; }
     public Cell Position { get; protected set; }
+    public bool IsGameOver { get; protected set; }
 
     public Piece(Board board, PieceColor color, Cell position) {
         this.board = board;
@@ -13,14 +14,13 @@ public class Piece {
         Position = position;
     }
 
-    public bool Work() {
+    public void Work() {
         foreach (var direction in DirectionExtend.AllCases) {
             var countInRow = 1;
             countInRow += CountSameColorInDirection(direction);
             countInRow += CountSameColorInDirection(direction.Reverse());
-            if (countInRow >= 5) return true;
+            if (countInRow >= 5) IsGameOver = true;
         }
-        return false;
     }
 
     public virtual bool IsRegal() {

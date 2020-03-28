@@ -14,6 +14,7 @@ public class Board {
         return null;
     }
 
+    #region color
     public PieceColor GetColor(Cell cell) {
         var piece = GetPiece(cell);
         if (piece == null) return PieceColor.none;
@@ -43,22 +44,25 @@ public class Board {
             if (!IsNone(cell)) return false;
         return true;
     }
+    #endregion
+
     public bool PutPiece(Cell cell) {
         var newPiece = CreatePiece(cell);
         if (!newPiece.IsRegal()) return false;
         pieces.Add(newPiece);
-
-        DecideWinner(newPiece);
+        newPiece.Work();
+        DecideWinner();
         ColorInTurn = ColorInTurn.Reverse();
 
         return true;
     }
 
-    void DecideWinner(Piece piece) {
-        if (piece.Work()) {
-            IsGameOver = true;
-            Winner = ColorInTurn;
-        }
+    void DecideWinner() {
+        foreach (var piece in pieces)
+            if (piece.IsGameOver) {
+                IsGameOver = true;
+                Winner = piece.Color;
+            }
     }
 
     protected virtual Piece CreatePiece(Cell cell) {
