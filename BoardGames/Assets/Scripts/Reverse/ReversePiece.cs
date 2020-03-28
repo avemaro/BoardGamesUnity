@@ -21,8 +21,8 @@ public class ReversePiece : Piece
             if (nextPiece == null) continue;
             nextPiece.CheckReversible(Color, direction);
             CheckReversible(Color, direction);
-            foreach (ReversePiece piece in board.pieces)
-                if (piece.IsReversible) return true;
+            if (((ReverseBoard)board).HasReversiblePiece())
+                return true;
         }
         return false;
     }

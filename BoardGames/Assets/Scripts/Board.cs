@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Board {
-    public List<Piece> pieces = new List<Piece>();
+    protected List<Piece> pieces = new List<Piece>();
     public PieceColor ColorInTurn { get; private set; } = PieceColor.black;
     public bool IsGameOver { get; private set; }
     public PieceColor Winner { get; private set; } 

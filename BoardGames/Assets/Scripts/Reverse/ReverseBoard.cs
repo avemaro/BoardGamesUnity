@@ -17,7 +17,11 @@ public class ReverseBoard : Board {
         }
     }
 
-    //public void CheckRe
+    public bool HasReversiblePiece() {
+        foreach (ReversePiece piece in pieces)
+            if (piece.IsReversible) return true;
+        return false;
+    }
 
     protected override Piece CreatePiece(Cell cell) {
         return new ReversePiece(this, ColorInTurn, cell);
