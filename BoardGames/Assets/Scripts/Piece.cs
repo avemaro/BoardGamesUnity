@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Piece {
     protected Board board;
-    public PieceColor Color { get; private set; }
-    public Cell Position { get; private set; }
+    public PieceColor Color { get; protected set; }
+    public Cell Position { get; protected set; }
 
     public Piece(Board board, PieceColor color, Cell position) {
         this.board = board;

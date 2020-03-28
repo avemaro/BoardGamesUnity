@@ -14,9 +14,14 @@ public class ReversePiece : Piece
             if (nextPiece == null) continue;
             var next2Piece = nextPiece.GetNextPiece(direction);
             if (next2Piece == null) continue;
-            if (nextPiece.Color != Color && next2Piece.Color == Color)
+            if (nextPiece.Color != Color && next2Piece.Color == Color) {
+                nextPiece.Reverse();
                 return true;
+            }
         }
         return false;
+    }
+    void Reverse() {
+        Color = Color.Reverse();
     }
 }
