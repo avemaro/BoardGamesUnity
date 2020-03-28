@@ -25,9 +25,6 @@ public class Board {
     public bool IsWhite(Cell cell) {
         return GetColor(cell) == PieceColor.white;
     }
-    public bool IsNone(Cell cell) {
-        return GetColor(cell) == PieceColor.none;
-    }
 
     public bool PutPiece(Cell cell) {
         var newPiece = CreatePiece(cell);
