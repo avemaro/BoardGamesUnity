@@ -39,6 +39,7 @@ namespace Tests
             }
         }
 
+        [Test]
         public void Test4_APieceHasReveresed() {
             var board = new ReverseBoard();
             Assert.True(board.PutPiece(Cell.d3));
