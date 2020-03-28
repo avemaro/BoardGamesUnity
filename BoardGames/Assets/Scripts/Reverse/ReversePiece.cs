@@ -19,12 +19,10 @@ public class ReversePiece : Piece
         foreach (var direction in DirectionExtend.AllCases) {
             var nextPiece = (ReversePiece)GetNextPiece(direction);
             if (nextPiece == null) continue;
-            var next2Piece = nextPiece.GetNextPiece(direction);
-            if (next2Piece == null) continue;
-            if (nextPiece.Color != Color && next2Piece.Color == Color) {
-                nextPiece.IsReversible = true;
-                return true;
-            }
+            nextPiece.CheckReversible(Color, direction);
+            CheckReversible(Color, direction);
+            foreach (ReversePiece piece in board.pieces)
+                if (piece.IsReversible) return true;
         }
         return false;
     }
@@ -35,5 +33,25 @@ public class ReversePiece : Piece
 
     public void Reset() {
         IsReversible = false;
+    }
+
+    void CheckReversible(PieceColor color, Direction direction) {
+        if (Color == color) {
+            var nextPiece = (ReversePiece)GetNextPiece(direction.Reverse());
+            if (nextPiece == null) return;
+            nextPiece.MarkReversible(color, direction.Reverse());
+        } else if (Color == color.Reverse()) {
+            var nextPiece = (ReversePiece)GetNextPiece(direction);
+            if (nextPiece == null) return;
+            nextPiece.CheckReversible(color, direction);
+        }
+    }
+
+    void MarkReversible(PieceColor color, Direction direction) {
+        if (Color != color.Reverse()) return;
+        IsReversible = true;
+        var nextPiece = (ReversePiece)GetNextPiece(direction);
+        if (nextPiece == null) return;
+        nextPiece.MarkReversible(color, direction);
     }
 }

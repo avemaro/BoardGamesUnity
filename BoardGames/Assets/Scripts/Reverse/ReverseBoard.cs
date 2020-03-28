@@ -17,6 +17,8 @@ public class ReverseBoard : Board {
         }
     }
 
+    //public void CheckRe
+
     protected override Piece CreatePiece(Cell cell) {
         return new ReversePiece(this, ColorInTurn, cell);
     }
