@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class ReversePiece : Piece
 {
+    public bool IsReversible { get; protected set; }
+
     public ReversePiece(Board board, PieceColor color, Cell position) : base(board, color, position) {
     }
+
+    public override void Work() {
+        ((ReverseBoard)board).Reverse();
+    }
+
     public override bool IsRegal() {
         if (!base.IsRegal()) return false;
 
@@ -15,10 +22,18 @@ public class ReversePiece : Piece
             var next2Piece = nextPiece.GetNextPiece(direction);
             if (next2Piece == null) continue;
             if (nextPiece.Color != Color && next2Piece.Color == Color) {
-                nextPiece.Color = nextPiece.Color.Reverse();
+                nextPiece.IsReversible = true;
                 return true;
             }
         }
         return false;
+    }
+
+    public void Reverse() {
+        Color = Color.Reverse();
+    }
+
+    public void Reset() {
+        IsReversible = false;
     }
 }

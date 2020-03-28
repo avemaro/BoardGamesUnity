@@ -10,6 +10,13 @@ public class ReverseBoard : Board {
         pieces.Add(new ReversePiece(this, PieceColor.white, Cell.e5));
     }
 
+    public void Reverse() {
+        foreach (ReversePiece piece in pieces) {
+            if (piece.IsReversible) piece.Reverse();
+            piece.Reset();
+        }
+    }
+
     protected override Piece CreatePiece(Cell cell) {
         return new ReversePiece(this, ColorInTurn, cell);
     }

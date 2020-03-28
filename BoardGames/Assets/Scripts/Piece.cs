@@ -14,7 +14,7 @@ public class Piece {
         Position = position;
     }
 
-    public void Work() {
+    public virtual void Work() {
         foreach (var direction in DirectionExtend.AllCases) {
             var countInRow = 1;
             countInRow += CountSameColorInDirection(direction);
