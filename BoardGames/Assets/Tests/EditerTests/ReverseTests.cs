@@ -27,5 +27,16 @@ namespace Tests
             Assert.AreEqual(PieceColor.white, board.GetColor(Cell.c5));
             Assert.AreEqual(PieceColor.black, board.ColorInTurn);
         }
+
+        [Test]
+        public void Test3_PiecePinchOtherPieces() {
+            ReverseBoard board;
+            foreach (var cell in CellExtend.AllCases) {
+                board = new ReverseBoard();
+                if (cell == Cell.c4 || cell == Cell.d3 || cell == Cell.e6 || cell == Cell.f5)
+                    Assert.True(board.PutPiece(cell));
+                Assert.False(board.PutPiece(cell));   //Expected: false, But was: true
+            }
+        }
     }
 }
