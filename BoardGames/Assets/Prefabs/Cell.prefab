@@ -141,6 +141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da25685fd10841a0803a51400c0c320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position: 0
-  blackPiecePrefab: {fileID: 4006174388293414332, guid: a42c278b9201f46239759b2009916aa1,
+  model: 0
+  piecePrefab: {fileID: 4006174388293414332, guid: a42c278b9201f46239759b2009916aa1,
     type: 3}

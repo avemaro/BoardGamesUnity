@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CellBehaviour : MonoBehaviour
-{
+public class CellBehaviour : MonoBehaviour {
     public Cell model;
     Button button;
-    public GameObject blackPiecePrefab;
+    public GameObject piecePrefab;
 
+    public Board board;
     // Start is called before the first frame update
+
     void Start()
     {
         button = GetComponent<Button>();
@@ -25,9 +26,19 @@ public class CellBehaviour : MonoBehaviour
     }
 
     public void Select() {
-        Debug.Log("Cell." + model);
-        var piece = Instantiate(blackPiecePrefab, transform);
-        piece.GetComponent<Image>().color = Color.white;
+        if (board.IsGameOver) return;
+        if (!board.PutPiece(model)) return;
+        if (board.IsGameOver) {
+            Debug.Log("GameOver");
+            Debug.Log(board.Winner);
+        }
+
+        var piece = Instantiate(piecePrefab, transform);
+
+        var color = Color.black;
+        if (board.ColorInTurn == PieceColor.white) color = Color.white; 
+
+        piece.GetComponent<Image>().color = color;
     }
 
     public void SetPosition() {
