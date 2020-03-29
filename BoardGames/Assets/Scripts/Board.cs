@@ -53,6 +53,7 @@ public class Board {
         newPiece.Work();
         DecideWinner();
         ColorInTurn = ColorInTurn.Reverse();
+        if (NoRegalHands()) ColorInTurn = ColorInTurn.Reverse();
 
         return true;
     }
@@ -65,7 +66,26 @@ public class Board {
             }
     }
 
+    bool NoRegalHands() {
+        foreach (var cell in CellExtend.AllCases) {
+            var newPiece = CreatePiece(cell);
+            if (newPiece.IsRegal()) return false;
+        }
+        return true;
+    }
+
     protected virtual Piece CreatePiece(Cell cell) {
         return new Piece(this, ColorInTurn, cell);
+    }
+
+    public void PrintBoard() {
+        for (var rank = 0; rank < 8; rank++) {
+            string log = "";
+            for (var file = 0; file < 8; file++) {
+                Cell cell = (Cell)CellExtend.AllCases.GetValue((rank * 8) + file);
+                log += GetColor(cell).GetString();
+            }
+            Debug.Log(log);
+        }
     }
 }

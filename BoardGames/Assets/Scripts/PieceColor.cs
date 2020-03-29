@@ -12,4 +12,12 @@ public static class PieceColorExtend {
         else if (pieceColor == PieceColor.white) return PieceColor.black;
         return PieceColor.none;
     }
+
+    public static string GetString(this PieceColor pieceColor) {
+        switch (pieceColor) {
+            case PieceColor.black: return "B";
+            case PieceColor.white: return "W";
+        }
+        return "*";
+    }
 }

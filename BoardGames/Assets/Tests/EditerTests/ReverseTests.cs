@@ -58,6 +58,7 @@ namespace Tests
             Assert.False(board.Check(blackCells, whiteCells));
             foreach (var cell in new Cell[] { Cell.d3, Cell.c5, Cell.b6 })
                 Assert.True(board.PutPiece(cell));
+            board.PrintBoard();
             Assert.True(board.Check(blackCells, whiteCells));
 
             Assert.True(board.PutPiece(Cell.d2));
@@ -70,7 +71,7 @@ namespace Tests
         public void Test6_PassTurn() {
             var board = new ReverseBoard();
             var cells = new Cell[] { Cell.f5, Cell.f6, Cell.d3, Cell.g5,
-                                     Cell.h5, Cell.h4, Cell.f7, Cell.h6 };
+                                        Cell.h5, Cell.h4, Cell.f7, Cell.h6 };
             foreach (var cell in cells)
                 board.PutPiece(cell);
             var blackCells = new Cell[] { Cell.d3, Cell.d4, Cell.d5, Cell.e4, Cell.e5, Cell.f5, Cell.f6, Cell.f7 };
