@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Board {
-    protected List<Piece> pieces = new List<Piece>();
+public class GomokuBoard {
+    protected List<GomokuPiece> pieces = new List<GomokuPiece>();
     public PieceColor ColorInTurn { get; protected set; } = PieceColor.black;
     public bool IsGameOver { get; protected set; }
     public PieceColor Winner { get; protected set; } 
 
-    public Piece GetPiece(Cell? cell) {
+    public GomokuPiece GetPiece(Cell? cell) {
         foreach (var piece in pieces)
             if (piece.Position == cell) return piece;
         return null;
@@ -29,7 +29,6 @@ public class Board {
     public bool IsNone(Cell cell) {
         return GetColor(cell) == PieceColor.none;
     }
-
     public bool Check(Cell[] blackCells, Cell[] whiteCells) {
         var noneCells = new List<Cell>(CellExtend.AllCases);
         foreach (Cell cell in blackCells) {
@@ -75,12 +74,12 @@ public class Board {
         return true;
     }
 
-    protected Piece CreatePiece(Cell cell) {
+    protected GomokuPiece CreatePiece(Cell cell) {
         return CreatePiece(ColorInTurn, cell);
     }
 
-    protected virtual Piece CreatePiece(PieceColor color, Cell cell) {
-        return new Piece(this, color, cell);
+    protected virtual GomokuPiece CreatePiece(PieceColor color, Cell cell) {
+        return new GomokuPiece(this, color, cell);
     }
 
     public void PrintBoard() {

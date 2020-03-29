@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Piece {
-    protected Board board;
+public class GomokuPiece {
+    protected GomokuBoard board;
     public PieceColor Color { get; protected set; }
     public Cell Position { get; protected set; }
     public bool IsGameOver { get; protected set; }
 
-    public Piece(Board board, PieceColor color, Cell position) {
+    public GomokuPiece(GomokuBoard board, PieceColor color, Cell position) {
         this.board = board;
         Color = color;
         Position = position;
@@ -34,7 +34,7 @@ public class Piece {
         return nextPiece.CountSameColorInDirection(direction) + 1;
     }
 
-    protected Piece GetNextPiece(Direction direction) {
+    protected GomokuPiece GetNextPiece(Direction direction) {
         var nextCell = Position.Next(direction);
         if (nextCell == null) return null;
         return board.GetPiece(nextCell);
