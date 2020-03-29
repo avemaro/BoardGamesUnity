@@ -9,6 +9,7 @@ public class CellBehaviour : MonoBehaviour {
     public GameObject piecePrefab;
 
     public Board board;
+    GameObject pieceObject;
     // Start is called before the first frame update
 
     void Start()
@@ -22,12 +23,27 @@ public class CellBehaviour : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        
+        var color = board.GetColor(model);
+        if (pieceObject != null) SetColor(color);
+    }
+
+    public void PutPiece(PieceColor pieceColor) {
+        var color = Color.black;
+        if (pieceColor == PieceColor.white) color = Color.white;
+
+        pieceObject = Instantiate(piecePrefab, transform);
+        pieceObject.GetComponent<Image>().color = color;
+    }
+
+    void SetColor(PieceColor pieceColor) {
+        var color = Color.black;
+        if (pieceColor == PieceColor.white) color = Color.white;
+
+        pieceObject.GetComponent<Image>().color = color;
     }
 
     public void Select() {
-        var color = Color.black;
-        if (board.ColorInTurn == PieceColor.white) color = Color.white;
+        var color = board.ColorInTurn;
 
         if (board.IsGameOver) return;
         if (!board.PutPiece(model)) return;
@@ -36,10 +52,7 @@ public class CellBehaviour : MonoBehaviour {
             Debug.Log(board.Winner);
         }
 
-        var piece = Instantiate(piecePrefab, transform);
-
-
-        piece.GetComponent<Image>().color = color;
+        PutPiece(color);
     }
 
     public void SetPosition() {
