@@ -10,29 +10,12 @@ public class ReversePiece : Piece
     }
 
     public override void Work() {
-        foreach (var direction in DirectionExtend.AllCases) {
-            var nextPiece = (ReversePiece)GetNextPiece(direction);
-            if (nextPiece == null) continue;
-            nextPiece.CheckReversible(Color, direction);
-        }
-
-        //CheckReversible();
+        CheckReversible();
         ((ReverseBoard)board).Reverse();
     }
 
     public override bool IsRegal() {
         if (!base.IsRegal()) return false;
-        foreach (var direction in DirectionExtend.AllCases) {
-            var nextPiece = (ReversePiece)GetNextPiece(direction);
-            if (nextPiece == null) continue;
-            nextPiece.CheckReversible(Color, direction);
-            if (((ReverseBoard)board).HasReversiblePiece()) {
-                ((ReverseBoard)board).ResetPieceState();
-                return true;
-            }
-        }
-        return false;
-
         var isRegal = CheckReversible();
         ((ReverseBoard)board).ResetPieceState();
         return isRegal;
