@@ -15,7 +15,9 @@ public abstract class Piece {
     }
 
     public abstract void Work();
-    public abstract bool IsRegal();
+    public virtual bool IsRegal() {
+        return board.GetPiece(Position) == null;
+    }
 
     protected Piece GetNextPiece(Direction direction) {
         var nextCell = Position.Next(direction);

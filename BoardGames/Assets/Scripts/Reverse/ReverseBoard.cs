@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ReverseBoard : GomokuBoard {
+public class ReverseBoard : Board {
     public ReverseBoard() {
         pieces.Add(new ReversePiece(this, PieceColor.black, Cell.d5));
         pieces.Add(new ReversePiece(this, PieceColor.black, Cell.e4));
@@ -43,7 +43,7 @@ public class ReverseBoard : GomokuBoard {
         if (numberOfblack == numberOfwhite) Winner = PieceColor.none;
     }
 
-    protected override GomokuPiece CreatePiece(PieceColor color, Cell cell) {
+    protected override Piece CreatePiece(PieceColor color, Cell cell) {
         return new ReversePiece(this, color, cell);
     }
 }
