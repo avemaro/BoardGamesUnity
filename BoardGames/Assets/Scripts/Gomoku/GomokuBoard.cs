@@ -2,26 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Board {
-    protected List<Piece> pieces = new List<Piece>();
+public class GomokuBoard {
+    protected List<GomokuPiece> pieces = new List<GomokuPiece>();
     public PieceColor ColorInTurn { get; protected set; } = PieceColor.black;
     public bool IsGameOver { get; protected set; }
-    public PieceColor Winner { get; protected set; }
+    public PieceColor Winner { get; protected set; } 
 
-    public bool PutPiece(Cell cell) {
-        var newPiece = CreatePiece(cell);
-        if (!newPiece.IsRegal()) return false;
-        pieces.Add(newPiece);
-        newPiece.Work();
-
-        ColorInTurn = ColorInTurn.Reverse();
-        if (NoRegalHands(ColorInTurn)) ColorInTurn = ColorInTurn.Reverse();
-        DecideWinner();
-
-        return true;
-    }
-
-    public Piece GetPiece(Cell? cell) {
+    public GomokuPiece GetPiece(Cell? cell) {
         foreach (var piece in pieces)
             if (piece.Position == cell) return piece;
         return null;
@@ -58,6 +45,27 @@ public abstract class Board {
     }
     #endregion
 
+    public bool PutPiece(Cell cell) {
+        var newPiece = CreatePiece(cell);
+        if (!newPiece.IsRegal()) return false;
+        pieces.Add(newPiece);
+        newPiece.Work();
+
+        ColorInTurn = ColorInTurn.Reverse();
+        if (NoRegalHands(ColorInTurn)) ColorInTurn = ColorInTurn.Reverse();
+        DecideWinner();
+
+        return true;
+    }
+
+    protected virtual void DecideWinner() {
+        foreach (var piece in pieces)
+            if (piece.IsGameOver) {
+                IsGameOver = true;
+                Winner = piece.Color;
+            }
+    }
+
     protected bool NoRegalHands(PieceColor color) {
         foreach (var cell in CellExtend.AllCases) {
             var newPiece = CreatePiece(color, cell);
@@ -66,10 +74,12 @@ public abstract class Board {
         return true;
     }
 
-    protected abstract void DecideWinner();
-    protected abstract Piece CreatePiece(PieceColor color, Cell cell);
-    protected Piece CreatePiece(Cell cell) {
+    protected GomokuPiece CreatePiece(Cell cell) {
         return CreatePiece(ColorInTurn, cell);
+    }
+
+    protected virtual GomokuPiece CreatePiece(PieceColor color, Cell cell) {
+        return new GomokuPiece(this, color, cell);
     }
 
     public void PrintBoard() {
