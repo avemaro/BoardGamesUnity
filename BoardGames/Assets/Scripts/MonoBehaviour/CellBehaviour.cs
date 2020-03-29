@@ -8,7 +8,7 @@ public class CellBehaviour : MonoBehaviour {
     Button button;
     public GameObject piecePrefab;
 
-    public GomokuBoard board;
+    public Board board;
     // Start is called before the first frame update
 
     void Start()

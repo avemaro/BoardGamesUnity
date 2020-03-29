@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BoardBehaviour : MonoBehaviour
 {
-    GomokuBoard board;
+    Board board;
     public CellBehaviour cellPrefab;
     // Start is called before the first frame update
     void Start()
