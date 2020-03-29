@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 0
 --- !u!114 &2
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_MinSize: {x: 504, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 45
+  controlID: 63
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -135,12 +135,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1022
+    width: 1023
     height: 736
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 19
+  controlID: 64
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -160,12 +160,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1022
+    width: 1023
     height: 463
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 20
+  controlID: 65
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -185,8 +185,8 @@ MonoBehaviour:
     y: 0
     width: 365
     height: 463
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -209,7 +209,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 365
     y: 0
-    width: 657
+    width: 658
     height: 463
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
@@ -220,7 +220,7 @@ MonoBehaviour:
   - {fileID: 15}
   - {fileID: 16}
   m_Selected: 0
-  m_LastSelected: 2
+  m_LastSelected: 1
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -238,7 +238,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 463
-    width: 1022
+    width: 1023
     height: 273
   m_MinSize: {x: 231, y: 271}
   m_MaxSize: {x: 10001, y: 10021}
@@ -263,12 +263,12 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1022
+    x: 1023
     y: 0
-    width: 418
+    width: 417
     height: 736
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 19}
@@ -300,7 +300,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 365
     y: 75
-    width: 655
+    width: 656
     height: 442
   m_ViewDataDictionary: {fileID: 0}
   m_ShowContextualTools: 0
@@ -313,9 +313,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0, y: 0, z: 0}
+    m_Target: {x: 3.2087083, y: -0.16147706, z: -0.17921324}
     speed: 2
-    m_Value: {x: 0, y: 0, z: 0}
+    m_Value: {x: 3.2087083, y: -0.16147706, z: -0.17921324}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -365,9 +365,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 10
+    m_Target: 13.868354
     speed: 2
-    m_Value: 10
+    m_Value: 13.868354
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -421,9 +421,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 54360000
       m_LastClickedID: 0
-      m_ExpandedIDs: 30cfffff60cfffffd8cfffff08d0ffff26d0ffff5cd0ffffc8d0fffff8d0ffff68d1ffff98d1ffff02d2ffff38d2ffff50d2ffff80d2ffff9ad2ffffcad2ffff8ed3ffffbed3ffff2cd4ffff5cd4ffff9ed5ffffced5ffff48d6ffff78d6ffff56d7ffff86d7fffffed7ffff2ed8ffffb6d8ffffe6d8fffffad9ffff30daffffaedfffffdedffffff4dfffff2ae0ffff96e0ffffc6e0ffff92e1ffffc2e1ffffe0e1ffff10e2ffffd4e2ffff04e3ffff1ce3ffff52e3ffffbce3ffffe0e3ffff0ee4ffff3ee4ffffb0e4ffffe0e4ffff16e6ffff48e6ffff54e7ffff80e7ffffece7ffff18e8ffff36e8ffff62e8ffff28e9ffff54e9ffff6ce9ffff98e9ffff0aeaffff36eaffffd2eafffffaeaffff66ebffff8eebfffffcebffff2aecffffeaecffff12edffff82edffffa6edffffc0edffffe8edffff02eeffff2aeeffff48eeffff70eeffffe4eeffff0cefffff84efffffacefffff1af0ffff42f0ffffbaf0ffffdef0ffff4af1ffff72f1ffff8cf1ffffb4f1ffff5cf3ffff84f3ffff9af3ffffc2f3ffff76f4ffff9ef4ffff92f5ffffb6f5ffffe6f5ffff0af6ffff22f6ffff46f6ffffb6f6ffffdaf6ffff54f7ffff78f7ffffe8f7ffff0cf8ffff3af8ffff5ef8ffff1cfbffff
+      m_ExpandedIDs: da2effff322fffff6c2fffffc42fffff6c30ffffc430ffffea30ffff4231ffff5a31ffffb231ffff2032ffff7832ffff9c32fffff432ffff7033ffffc833ffff3a34ffff9834ffff4a35ffffa235ffff1a36ffff7236ffff8c36ffffe436ffff5237ffffaa37ffff2838ffff8038ffff9a38fffff238ffff6439ffffbc39ffff363affff8e3afffffc3affff543bffffbc3bffff143cffff8c3cffffb03cffffc83cffff203dffff983dfffff03dffff663effffc03effff2a3fffff7e3fffff9c3ffffff03fffff0c40ffff6040ffffd640ffff2a41ffff4241ffff9641ffff0a42ffff5e42ffffce42ffff2243ffffda43ffff2e44ffff9c44fffff044ffff5c45ffffb045ffff2246ffff7646fffff046ffff4447ffffb247ffff0648ffff1e48ffff7248ffff9248ffffe648fffffe48ffff5849ffffbc49ffff104affff284affff7c4affff9c4afffff04affff664bffffba4bffffd24bffff264cffff3c4cffff7e4cffff204dffff424dffffb24dffff064effff1e4effff724effffe04effff344fffffa24fffffc64fffffe24fffff3c50ffffaa50ffff0451ffff6c51ffffc051ffffd851fffffc51ffff6a52ffffbe52ffff2c53ffff8053ffffee53ffff4254ffffc254ffff1c55ffff3c55ffff9055fffffe55ffff5256ffffbc56ffff1057ffff6c58ffffc058ffff3059ffff8459fffff659ffff505affff205bffff745bfffffa5bffff4a5cffffc25cffff125dffff8c5dffffdc5dffff505effffa05effff985fffffe85fffff0060ffff5060ffff7c60ffffcc60ffffec60ffff3c61ffff5c61ffffac61ffff2462ffff7a62ffffea62ffff3a63ffffaa63fffff863ffff0c64ffff5a64ffff1e65ffff6e65ffffde65ffff2e66ffffa666fffff666ffff6867ffffbe67ffff3468ffff8468fffff468ffff4469ffff1e6affff6e6affff8a6affffda6afffff06affff466bffffac6bfffffc6bffff6a6cffffba6cffffd26cffff286dffff2c6effff7c6effff9a6effffea6effff5a6fffffaa6fffff1c70ffff6c70ffffe070ffff3071ffff4c71ffff7071ffff9471ffffe471ffff0872ffff5872ffff7e72ffffce72ffff4073ffff9073ffff0674ffff5674ffff6e74ffffbe74ffff3275ffff8275ffff9e75ffffee75ffff5476ffffa476ffff1e77ffff6e77ffff8c77ffffdc77ffffae78fffffe78ffff7079ffffc079ffffde79ffff2e7affffa67afffffc7affff647bffffb47bffff247cffff747cffff8c7cffffe27cffffa27dfffff27dffff0a7effff5a7effffcc7effff1c7fffff347fffff847ffffff27fffff1680ffff2e80ffff7e80ffff9680ffffec80ffff5681ffffa681ffff2882ffff4c82ffff6682ffffbc82ffff2483ffff7483ffff4284ffff9284ffffb084ffff0085ffffc685ffff1686ffff8086ffffd686ffff4087ffff9087ffffae87fffffe87ffff7688ffffc688ffffe488ffff3289ffff4689ffff9489ffff148affff648affff828affffd28afffff08affff408bffff128cffff5e8cffffd48cffff268dffff8c8dffffd88dfffff08dffff3a8effff4e8effff9c8effff188fffff6a8fffff2690ffff7290ffff8e90ffffda90ffff4e91ffff9a91ffffc291ffff0e92ffff7c92ffffca92ffff5093ffff9893ffff1294ffff5a94ffffd494ffff1c95ffffa295ffffea95ffffaa96ffffce96ffffe896ffff3097ffffb297fffffa97ffff2099ffff6899ffff7a9bffffc29bffffda9bffff229cffff989cffffe09cffff509dffff989dffffb29dfffffa9dffff689effffb09effffca9effff129fffff2c9fffff509fffff6a9fffffb29fffff72a0ffffbaa0ffffd4a0ffff22a1ffff92a1ffffdaa1fffff4a1ffff18a2ffff32a2ffff80a2ffffe6a2ffff2ea3ffff9ea3ffffe6a3ffff02a4ffff48a4ffff5ca4ffffa6a4ffff1aa5ffff62a5ffff7ea5ffffc6a5ffff92a6ffffdaa6ffff48a7ffff90a7ffff00a8ffff48a8ffff0ea9ffff56a9ffffcaa9ffff12aaffffd8aaffff20abffff92abffffdaabfffff4abffff3cacfffffeacffff46adffff5eadffffa6adffffb4aefffffcaeffff6cafffffb4afffff24b0ffff6cb0ffffdab0ffff28b1ffff9eb1ffffe6b1ffff52b2ffff9ab2ffff0ab3ffff52b3ffffc6b3ffff0eb4ffffc4b4ffff0cb5ffffd4b5ffff1cb6ffffdeb6ffff26b7ffff96b7ffffe4b7ffff4ab8ffff92b8ffffaab8fffff2b8ffff16b9ffff64b9ffffd8b9ffff20baffff8abaffffd2baffff42bbffff66bbffff7ebbffffa2bbffffbabbffff02bcffff72bcffffbabcffffdabcffff22bdffff8cbdffffd4bdffff4abeffff92beffff10bfffff58bfffffd8bfffff20c0ffffdcc0ffff24c1ffff94c1ffffe2c1fffffac1ffff42c2ffffb0c2fffff8c2ffff6ac3ffffb2c3ffff22c4ffff6ac4ffff84c4ffffccc4ffffe6c4ffff34c5ffff9cc5ffffe4c5ffff54c6ffff9cc6ffff0ac7ffff52c7ffffc2c7ffff0ac8ffff82c8ffffcac8ffff38c9ffff80c9fffff6c9ffff3ecaffff00cbffff48cbffffbecbffff06ccffff1accffff64ccffffd2ccffff20cdffffbecdffff06ceffff7eceffffc6ceffff1ad0ffff62d0ffff88d0ffffd0d0ffffc2d1fffffed1ffff1ed2ffff5ad2ffffcad2ffff06d3ffff7cd3ffffb8d3ffff32d4ffff6ed4ffff86d4ffffc2d4ffff96d5ffffd2d5ffff42d6ffff7ed6ffff9cd6ffffd8d6ffffeed6ffff2ad7ffffb0dbffffe8dbffff08dcffff40dcffffbadcfffff2dcffffc4ddfffffaddffff0edeffff44deffffe0deffff18dfffff88dfffffc6dfffff42e0ffff7ae0ffff96e0ffffcee0ffff9ce1ffffd4e1ffff48e2ffff80e2fffffce2ffff34e3ffffaee3ffffe6e3ffff0ae4ffff42e4ffffb8e4fffff0e4ffff76e5ffffb4e5ffff22e6ffff5ae6ffffcae6ffff02e7ffff8ae7ffffc2e7ffff2ce8ffff50e8ffff6ae8ffffa2e8ffffbae8fffff2e8ffffbce9fffff4e9ffff62eaffff9aeaffffb8eafffff0eaffffb6ebffffeeebffff12ecffff4aecffffcaecffff02edffff94edffffd2edffff76eeffffaeeeffff20efffff58efffffd6efffff0ef0ffff8af0ffffc2f0ffff38f1ffff70f1ffffe8f1ffff26f2ffff92f2ffffcaf2ffff06f4ffff40f4ffffd2f4ffff06f5fffff6f5ffff2af6ffffe4f6ffff20f7ffff34f7ffff78f7ffffdef7ffff1af8ffff92f8ffffcef8ffff4ef9ffff8af9fffff8f9ffff3afaffff38fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -468,9 +468,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 243
+    x: 365
     y: 75
-    width: 526
+    width: 656
     height: 442
   m_ViewDataDictionary: {fileID: 0}
   m_SerializedViewsNames: []
@@ -479,7 +479,7 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 1052, y: 842}
+  m_TargetSize: {x: 1312, y: 842}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -493,8 +493,8 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -263
-    m_HBaseRangeMax: 263
+    m_HBaseRangeMin: -328
+    m_HBaseRangeMax: 328
     m_VBaseRangeMin: -210.5
     m_VBaseRangeMax: 210.5
     m_HAllowExceedBaseRangeMin: 1
@@ -505,7 +505,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
+    m_EnableMouseInput: 0
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -514,23 +514,23 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 526
+      width: 656
       height: 421
     m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 263, y: 210.5}
+    m_Translation: {x: 328, y: 210.5}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -263
+      x: -328
       y: -210.5
-      width: 526
+      width: 656
       height: 421
     m_MinimalGUI: 1
   m_defaultScale: 1
-  m_LastWindowPixelSize: {x: 1052, y: 884}
+  m_LastWindowPixelSize: {x: 1312, y: 884}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 00000000000000000000
@@ -628,7 +628,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 538
-    width: 1021
+    width: 1022
     height: 252
   m_ViewDataDictionary: {fileID: 0}
   m_SearchFilter:
@@ -644,20 +644,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Scripts/Reverse
   m_ViewMode: 1
   m_StartGridSize: 65
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Scripts/Reverse
   m_LastFoldersGridSize: 65
-  m_LastProjectPath: /Users/yamasaki/Documents/GitHub/BoardGamesUnity/BoardGames
+  m_LastProjectPath: /Users/yamasaki/BoardGamesUnity/BoardGames
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: b8350000
-    m_LastClickedID: 13752
-    m_ExpandedIDs: 00000000143400001834000000ca9a3b
+    m_SelectedIDs: 56360000
+    m_LastClickedID: 13910
+    m_ExpandedIDs: 000000001a3400002434000026340000a036000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -685,7 +685,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 
+    m_ExpandedIDs: 000000001a340000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -764,7 +764,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 538
-    width: 824
+    width: 1021
     height: 252
   m_ViewDataDictionary: {fileID: 0}
 --- !u!114 &19
@@ -788,9 +788,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1022
+    x: 1023
     y: 75
-    width: 417
+    width: 416
     height: 715
   m_ViewDataDictionary: {fileID: 0}
   m_OpenAddComponentMenu: 0
@@ -856,13 +856,13 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1022
+    x: 1023
     y: 75
-    width: 417
+    width: 416
     height: 715
   m_ViewDataDictionary: {fileID: 0}
   m_Spl:
-    ID: 425
+    ID: 149
     splitterInitialOffset: 324
     currentActiveSplitter: -1
     realSizes: 0001000085010000
@@ -934,7 +934,7 @@ MonoBehaviour:
       name: BoardGames
       fullName: BoardGames
       resultStatus: 1
-      duration: 0.1139086
+      duration: 0.1291868
       messages: 
       output: 
       stacktrace: 
@@ -945,12 +945,12 @@ MonoBehaviour:
       categories: []
       parentId: 
       parentUniqueId: 
-    - id: 1003
-      uniqueId: '[/Users/yamasaki/Documents/GitHub/BoardGamesUnity/BoardGames/Library/ScriptAssemblies/EditerTests.dll][suite]'
+    - id: 1009
+      uniqueId: '[/Users/yamasaki/BoardGamesUnity/BoardGames/Library/ScriptAssemblies/EditerTests.dll][suite]'
       name: EditerTests.dll
-      fullName: /Users/yamasaki/Documents/GitHub/BoardGamesUnity/BoardGames/Library/ScriptAssemblies/EditerTests.dll
+      fullName: /Users/yamasaki/BoardGamesUnity/BoardGames/Library/ScriptAssemblies/EditerTests.dll
       resultStatus: 1
-      duration: 0.0735845
+      duration: 0.1063617
       messages: 
       output: 
       stacktrace: 
@@ -961,12 +961,12 @@ MonoBehaviour:
       categories: []
       parentId: 1000
       parentUniqueId: '[BoardGames][suite]'
-    - id: 1004
+    - id: 1010
       uniqueId: EditerTests.dll/[Tests][suite]
       name: Tests
       fullName: Tests
       resultStatus: 1
-      duration: 0.0657936
+      duration: 0.0982332
       messages: 
       output: 
       stacktrace: 
@@ -975,14 +975,14 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentId: 1003
-      parentUniqueId: '[/Users/yamasaki/Documents/GitHub/BoardGamesUnity/BoardGames/Library/ScriptAssemblies/EditerTests.dll][suite]'
+      parentId: 1009
+      parentUniqueId: '[/Users/yamasaki/BoardGamesUnity/BoardGames/Library/ScriptAssemblies/EditerTests.dll][suite]'
     - id: 1001
-      uniqueId: EditerTests.dll/Tests/[EditerTests][Tests.ReverseTest][suite]
-      name: ReverseTest
-      fullName: Tests.ReverseTest
+      uniqueId: EditerTests.dll/Tests/[EditerTests][Tests.GomokuTests][suite]
+      name: GomokuTests
+      fullName: Tests.GomokuTests
       resultStatus: 1
-      duration: 0.0575672
+      duration: 0.0144774
       messages: 
       output: 
       stacktrace: 
@@ -991,14 +991,14 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentId: 1004
+      parentId: 1013
       parentUniqueId: EditerTests.dll/[Tests][suite]
     - id: 1002
-      uniqueId: EditerTests.dll/Tests/ReverseTest/[EditerTests][Tests.ReverseTest.Test1_BoardHasInitialized]
-      name: Test1_BoardHasInitialized
-      fullName: Tests.ReverseTest.Test1_BoardHasInitialized
+      uniqueId: EditerTests.dll/Tests/GomokuTests/[EditerTests][Tests.GomokuTests.Test1_a1HasNoCellOnUpAndLeft]
+      name: Test1_a1HasNoCellOnUpAndLeft
+      fullName: Tests.GomokuTests.Test1_a1HasNoCellOnUpAndLeft
       resultStatus: 1
-      duration: 0.0225729
+      duration: 0.0003121
       messages: 
       output: 
       stacktrace: 
@@ -1009,13 +1009,13 @@ MonoBehaviour:
       categories:
       - Uncategorized
       parentId: 1001
-      parentUniqueId: EditerTests.dll/Tests/[EditerTests][Tests.ReverseTest][suite]
+      parentUniqueId: EditerTests.dll/Tests/[EditerTests][Tests.GomokuTests][suite]
     - id: 1003
-      uniqueId: EditerTests.dll/Tests/ReverseTest/[EditerTests][Tests.ReverseTest.Test2_PutPieceAlternately]
-      name: Test2_PutPieceAlternately
-      fullName: Tests.ReverseTest.Test2_PutPieceAlternately
+      uniqueId: EditerTests.dll/Tests/GomokuTests/[EditerTests][Tests.GomokuTests.Test2_h8HasNoCellOnUpAndLeft]
+      name: Test2_h8HasNoCellOnUpAndLeft
+      fullName: Tests.GomokuTests.Test2_h8HasNoCellOnUpAndLeft
       resultStatus: 1
-      duration: 0.0025611
+      duration: 0.0001962
       messages: 
       output: 
       stacktrace: 
@@ -1026,13 +1026,13 @@ MonoBehaviour:
       categories:
       - Uncategorized
       parentId: 1001
-      parentUniqueId: EditerTests.dll/Tests/[EditerTests][Tests.ReverseTest][suite]
+      parentUniqueId: EditerTests.dll/Tests/[EditerTests][Tests.GomokuTests][suite]
     - id: 1004
-      uniqueId: EditerTests.dll/Tests/ReverseTest/[EditerTests][Tests.ReverseTest.Test3_PutPieceOnVacantCell]
-      name: Test3_PutPieceOnVacantCell
-      fullName: Tests.ReverseTest.Test3_PutPieceOnVacantCell
+      uniqueId: EditerTests.dll/Tests/GomokuTests/[EditerTests][Tests.GomokuTests.Test3_BoardHasInitialized]
+      name: Test3_BoardHasInitialized
+      fullName: Tests.GomokuTests.Test3_BoardHasInitialized
       resultStatus: 1
-      duration: 0.0009986
+      duration: 0.0006659
       messages: 
       output: 
       stacktrace: 
@@ -1043,13 +1043,13 @@ MonoBehaviour:
       categories:
       - Uncategorized
       parentId: 1001
-      parentUniqueId: EditerTests.dll/Tests/[EditerTests][Tests.ReverseTest][suite]
+      parentUniqueId: EditerTests.dll/Tests/[EditerTests][Tests.GomokuTests][suite]
     - id: 1005
-      uniqueId: EditerTests.dll/Tests/ReverseTest/[EditerTests][Tests.ReverseTest.Test4_APieceHasReveresed]
-      name: Test4_APieceHasReveresed
-      fullName: Tests.ReverseTest.Test4_APieceHasReveresed
+      uniqueId: EditerTests.dll/Tests/GomokuTests/[EditerTests][Tests.GomokuTests.Test4_PutPieceAlternately]
+      name: Test4_PutPieceAlternately
+      fullName: Tests.GomokuTests.Test4_PutPieceAlternately
       resultStatus: 1
-      duration: 0.000446
+      duration: 0.0002372
       messages: 
       output: 
       stacktrace: 
@@ -1060,14 +1060,216 @@ MonoBehaviour:
       categories:
       - Uncategorized
       parentId: 1001
-      parentUniqueId: EditerTests.dll/Tests/[EditerTests][Tests.ReverseTest][suite]
-    m_ResultText: Test4_APieceHasReveresed (0.000s)
+      parentUniqueId: EditerTests.dll/Tests/[EditerTests][Tests.GomokuTests][suite]
+    - id: 1006
+      uniqueId: EditerTests.dll/Tests/GomokuTests/[EditerTests][Tests.GomokuTests.Test5_PutPieceOnVacantCell]
+      name: Test5_PutPieceOnVacantCell
+      fullName: Tests.GomokuTests.Test5_PutPieceOnVacantCell
+      resultStatus: 1
+      duration: 0.0002367
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: EditerTests.dll/Tests/[EditerTests][Tests.GomokuTests][suite]
+    - id: 1008
+      uniqueId: EditerTests.dll/Tests/GomokuTests/[EditerTests][Tests.GomokuTests.Test6_2_5PiecesInRowWinsGame]
+      name: Test6_2_5PiecesInRowWinsGame
+      fullName: Tests.GomokuTests.Test6_2_5PiecesInRowWinsGame
+      resultStatus: 1
+      duration: 0.0006657
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: EditerTests.dll/Tests/[EditerTests][Tests.GomokuTests][suite]
+    - id: 1007
+      uniqueId: EditerTests.dll/Tests/GomokuTests/[EditerTests][Tests.GomokuTests.Test6_5PiecesInRowWinsGame]
+      name: Test6_5PiecesInRowWinsGame
+      fullName: Tests.GomokuTests.Test6_5PiecesInRowWinsGame
+      resultStatus: 1
+      duration: 0.0004385
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: EditerTests.dll/Tests/[EditerTests][Tests.GomokuTests][suite]
+    - id: 1009
+      uniqueId: EditerTests.dll/Tests/[EditerTests][Tests.ReverseTests][suite]
+      name: ReverseTests
+      fullName: Tests.ReverseTests
+      resultStatus: 1
+      duration: 0.0694911
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1013
+      parentUniqueId: EditerTests.dll/[Tests][suite]
+    - id: 1010
+      uniqueId: EditerTests.dll/Tests/ReverseTests/[EditerTests][Tests.ReverseTests.Test1_BoardHasInitialized]
+      name: Test1_BoardHasInitialized
+      fullName: Tests.ReverseTests.Test1_BoardHasInitialized
+      resultStatus: 1
+      duration: 0.0004577
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1009
+      parentUniqueId: EditerTests.dll/Tests/[EditerTests][Tests.ReverseTests][suite]
+    - id: 1011
+      uniqueId: EditerTests.dll/Tests/ReverseTests/[EditerTests][Tests.ReverseTests.Test2_PutPieceAlternately]
+      name: Test2_PutPieceAlternately
+      fullName: Tests.ReverseTests.Test2_PutPieceAlternately
+      resultStatus: 1
+      duration: 0.0015054
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1009
+      parentUniqueId: EditerTests.dll/Tests/[EditerTests][Tests.ReverseTests][suite]
+    - id: 1012
+      uniqueId: EditerTests.dll/Tests/ReverseTests/[EditerTests][Tests.ReverseTests.Test3_PiecePinchOtherPieces]
+      name: Test3_PiecePinchOtherPieces
+      fullName: Tests.ReverseTests.Test3_PiecePinchOtherPieces
+      resultStatus: 1
+      duration: 0.0021395
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1009
+      parentUniqueId: EditerTests.dll/Tests/[EditerTests][Tests.ReverseTests][suite]
+    - id: 1013
+      uniqueId: EditerTests.dll/Tests/ReverseTests/[EditerTests][Tests.ReverseTests.Test4_APieceHasReveresed]
+      name: Test4_APieceHasReveresed
+      fullName: Tests.ReverseTests.Test4_APieceHasReveresed
+      resultStatus: 1
+      duration: 0.0009569
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1009
+      parentUniqueId: EditerTests.dll/Tests/[EditerTests][Tests.ReverseTests][suite]
+    - id: 1014
+      uniqueId: EditerTests.dll/Tests/ReverseTests/[EditerTests][Tests.ReverseTests.Test5_PiecesHaveReversed]
+      name: Test5_PiecesHaveReversed
+      fullName: Tests.ReverseTests.Test5_PiecesHaveReversed
+      resultStatus: 1
+      duration: 0.0123454
+      messages: 
+      output: '********
+
+        ********
+
+        ***B****
+
+        ***BB***
+
+        **BWW***
+
+        *B******
+
+        ********
+
+        ********
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1009
+      parentUniqueId: EditerTests.dll/Tests/[EditerTests][Tests.ReverseTests][suite]
+    - id: 1015
+      uniqueId: EditerTests.dll/Tests/ReverseTests/[EditerTests][Tests.ReverseTests.Test6_PassTurn]
+      name: Test6_PassTurn
+      fullName: Tests.ReverseTests.Test6_PassTurn
+      resultStatus: 1
+      duration: 0.0038236
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1009
+      parentUniqueId: EditerTests.dll/Tests/[EditerTests][Tests.ReverseTests][suite]
+    - id: 1016
+      uniqueId: EditerTests.dll/Tests/ReverseTests/[EditerTests][Tests.ReverseTests.Test8_GameOver]
+      name: Test8_GameOver
+      fullName: Tests.ReverseTests.Test8_GameOver
+      resultStatus: 1
+      duration: 0.0079603
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1009
+      parentUniqueId: EditerTests.dll/Tests/[EditerTests][Tests.ReverseTests][suite]
+    m_ResultText: Test8_GameOver (0.008s)
     m_ResultStacktrace: 
     m_TestListState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: ca694d7e
-      m_LastClickedID: 2119002570
-      m_ExpandedIDs: 856bd585434014969e0a699edbf809a4e21259a52de7e0a679b753a7ae5afbb2503517b765d068c438c680c4e934dbc7313773d6ba1057eae79943ec3beef2024940b904d10d1e11dd460113d23fbd132b6cf91ac558723c4054844043a17443ef02f94791d57851379cef51e189df5b0ed3eb77ffffff7f
+      m_SelectedIDs: 1aa86cd4
+      m_LastClickedID: -731076582
+      m_ExpandedIDs: 856bd585434014969e0a699edbf809a4e21259a52de7e0a679b753a7ae5afbb2102937b5503517b765d068c438c680c4e934dbc7313773d6ba1057eae79943ec23fc39f43beef2024940b904d10d1e11dd460113d23fbd132b6cf91ac558723c4054844043a17443ef02f94791d57851379cef51e189df5b0ed3eb77ffffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
