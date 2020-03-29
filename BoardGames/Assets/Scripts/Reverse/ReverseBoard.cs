@@ -27,7 +27,23 @@ public class ReverseBoard : Board {
             piece.Reset();
     }
 
-    protected override Piece CreatePiece(Cell cell) {
-        return new ReversePiece(this, ColorInTurn, cell);
+    protected override void DecideWinner() {
+        if (!NoRegalHands(PieceColor.black)) return;
+        if (!NoRegalHands(PieceColor.white)) return;
+        IsGameOver = true;
+
+        int numberOfblack = 0;
+        int numberOfwhite = 0;
+        foreach (var piece in pieces) {
+            if (piece.Color == PieceColor.black) numberOfblack++;
+            if (piece.Color == PieceColor.white) numberOfwhite++;
+        }
+        if (numberOfblack > numberOfwhite) Winner = PieceColor.black;
+        if (numberOfblack < numberOfwhite) Winner = PieceColor.white;
+        if (numberOfblack == numberOfwhite) Winner = PieceColor.none;
+    }
+
+    protected override Piece CreatePiece(PieceColor color, Cell cell) {
+        return new ReversePiece(this, color, cell);
     }
 }

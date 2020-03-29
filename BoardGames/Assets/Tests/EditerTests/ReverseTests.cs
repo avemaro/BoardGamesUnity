@@ -79,5 +79,20 @@ namespace Tests
             Assert.True(board.Check(blackCells, whiteCells));
             Assert.AreEqual(PieceColor.white, board.ColorInTurn);
         }
+
+        [Test]
+        public void Test7_GameOver() {
+            var board = new ReverseBoard();
+            Assert.False(board.IsGameOver);
+            Assert.AreEqual(PieceColor.none, board.Winner);
+
+            var cells = new Cell[] { Cell.f5, Cell.d6, Cell.c5, Cell.f4,
+                                    Cell.e3, Cell.f6, Cell.g5, Cell.e6,
+                                    Cell.e7 };
+            foreach (var cell in cells)
+                board.PutPiece(cell);
+            Assert.True(board.IsGameOver);
+            Assert.AreEqual(PieceColor.black, board.Winner);
+        }
     }
 }

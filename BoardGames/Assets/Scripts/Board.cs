@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Board {
     protected List<Piece> pieces = new List<Piece>();
-    public PieceColor ColorInTurn { get; private set; } = PieceColor.black;
-    public bool IsGameOver { get; private set; }
-    public PieceColor Winner { get; private set; } 
+    public PieceColor ColorInTurn { get; protected set; } = PieceColor.black;
+    public bool IsGameOver { get; protected set; }
+    public PieceColor Winner { get; protected set; } 
 
     public Piece GetPiece(Cell? cell) {
         foreach (var piece in pieces)
@@ -51,14 +51,15 @@ public class Board {
         if (!newPiece.IsRegal()) return false;
         pieces.Add(newPiece);
         newPiece.Work();
-        DecideWinner();
+
         ColorInTurn = ColorInTurn.Reverse();
-        if (NoRegalHands()) ColorInTurn = ColorInTurn.Reverse();
+        if (NoRegalHands(ColorInTurn)) ColorInTurn = ColorInTurn.Reverse();
+        DecideWinner();
 
         return true;
     }
 
-    void DecideWinner() {
+    protected virtual void DecideWinner() {
         foreach (var piece in pieces)
             if (piece.IsGameOver) {
                 IsGameOver = true;
@@ -66,16 +67,20 @@ public class Board {
             }
     }
 
-    bool NoRegalHands() {
+    protected bool NoRegalHands(PieceColor color) {
         foreach (var cell in CellExtend.AllCases) {
-            var newPiece = CreatePiece(cell);
+            var newPiece = CreatePiece(color, cell);
             if (newPiece.IsRegal()) return false;
         }
         return true;
     }
 
-    protected virtual Piece CreatePiece(Cell cell) {
-        return new Piece(this, ColorInTurn, cell);
+    protected Piece CreatePiece(Cell cell) {
+        return CreatePiece(ColorInTurn, cell);
+    }
+
+    protected virtual Piece CreatePiece(PieceColor color, Cell cell) {
+        return new Piece(this, color, cell);
     }
 
     public void PrintBoard() {
