@@ -2,11 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Board {
+public abstract class Board {
     protected List<Piece> pieces = new List<Piece>();
     public PieceColor ColorInTurn { get; protected set; } = PieceColor.black;
     public bool IsGameOver { get; protected set; }
-    public PieceColor Winner { get; protected set; } 
+    public PieceColor Winner { get; protected set; }
+
+    public bool PutPiece(Cell cell) {
+        var newPiece = CreatePiece(cell);
+        if (!newPiece.IsRegal()) return false;
+        pieces.Add(newPiece);
+        newPiece.Work();
+
+        ColorInTurn = ColorInTurn.Reverse();
+        if (NoRegalHands(ColorInTurn)) ColorInTurn = ColorInTurn.Reverse();
+        DecideWinner();
+
+        return true;
+    }
 
     public Piece GetPiece(Cell? cell) {
         foreach (var piece in pieces)
@@ -29,7 +42,6 @@ public class Board {
     public bool IsNone(Cell cell) {
         return GetColor(cell) == PieceColor.none;
     }
-
     public bool Check(Cell[] blackCells, Cell[] whiteCells) {
         var noneCells = new List<Cell>(CellExtend.AllCases);
         foreach (Cell cell in blackCells) {
@@ -46,27 +58,6 @@ public class Board {
     }
     #endregion
 
-    public bool PutPiece(Cell cell) {
-        var newPiece = CreatePiece(cell);
-        if (!newPiece.IsRegal()) return false;
-        pieces.Add(newPiece);
-        newPiece.Work();
-
-        ColorInTurn = ColorInTurn.Reverse();
-        if (NoRegalHands(ColorInTurn)) ColorInTurn = ColorInTurn.Reverse();
-        DecideWinner();
-
-        return true;
-    }
-
-    protected virtual void DecideWinner() {
-        foreach (var piece in pieces)
-            if (piece.IsGameOver) {
-                IsGameOver = true;
-                Winner = piece.Color;
-            }
-    }
-
     protected bool NoRegalHands(PieceColor color) {
         foreach (var cell in CellExtend.AllCases) {
             var newPiece = CreatePiece(color, cell);
@@ -75,12 +66,10 @@ public class Board {
         return true;
     }
 
+    protected abstract void DecideWinner();
+    protected abstract Piece CreatePiece(PieceColor color, Cell cell);
     protected Piece CreatePiece(Cell cell) {
         return CreatePiece(ColorInTurn, cell);
-    }
-
-    protected virtual Piece CreatePiece(PieceColor color, Cell cell) {
-        return new Piece(this, color, cell);
     }
 
     public void PrintBoard() {

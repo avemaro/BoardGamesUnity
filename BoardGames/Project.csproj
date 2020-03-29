@@ -66,6 +66,8 @@
     <Compile Include="Assets\Scripts\Board.cs" />
     <Compile Include="Assets\Scripts\Cell.cs" />
     <Compile Include="Assets\Scripts\Direction.cs" />
+    <Compile Include="Assets\Scripts\Gomoku\GomokuBoard.cs" />
+    <Compile Include="Assets\Scripts\Gomoku\GomokuPiece.cs" />
     <Compile Include="Assets\Scripts\MonoBehaviour\BoardBehaviour.cs" />
     <Compile Include="Assets\Scripts\MonoBehaviour\CellBehaviour.cs" />
     <Compile Include="Assets\Scripts\Piece.cs" />

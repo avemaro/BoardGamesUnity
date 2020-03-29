@@ -8,7 +8,7 @@ public class CellBehaviour : MonoBehaviour {
     Button button;
     public GameObject piecePrefab;
 
-    public Board board;
+    public GomokuBoard board;
     // Start is called before the first frame update
 
     void Start()
@@ -26,6 +26,9 @@ public class CellBehaviour : MonoBehaviour {
     }
 
     public void Select() {
+        var color = Color.black;
+        if (board.ColorInTurn == PieceColor.white) color = Color.white;
+
         if (board.IsGameOver) return;
         if (!board.PutPiece(model)) return;
         if (board.IsGameOver) {
@@ -35,8 +38,6 @@ public class CellBehaviour : MonoBehaviour {
 
         var piece = Instantiate(piecePrefab, transform);
 
-        var color = Color.black;
-        if (board.ColorInTurn == PieceColor.white) color = Color.white; 
 
         piece.GetComponent<Image>().color = color;
     }

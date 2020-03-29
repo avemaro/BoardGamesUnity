@@ -37,14 +37,14 @@ namespace Tests
 
         [Test]
         public void Test3_BoardHasInitialized() {
-            var board = new Board();
+            var board = new GomokuBoard();
             foreach (var cell in CellExtend.AllCases)
                 Assert.AreEqual(PieceColor.none, board.GetColor(cell));
         }
 
         [Test]
         public void Test4_PutPieceAlternately() {
-            var board = new Board();
+            var board = new GomokuBoard();
             Assert.AreEqual(PieceColor.black, board.ColorInTurn);
             board.PutPiece(Cell.d3);
             Assert.AreEqual(PieceColor.black, board.GetColor(Cell.d3));
@@ -56,7 +56,7 @@ namespace Tests
 
         [Test]
         public void Test5_PutPieceOnVacantCell() {
-            var board = new Board();
+            var board = new GomokuBoard();
             Assert.True(board.PutPiece(Cell.d3));
             Assert.AreEqual(PieceColor.black, board.GetColor(Cell.d3));
             Assert.False(board.PutPiece(Cell.d3));
@@ -67,7 +67,7 @@ namespace Tests
 
         [Test]
         public void Test6_5PiecesInRowWinsGame() {
-            var board = new Board();
+            var board = new GomokuBoard();
             Cell[] hands = { Cell.d3, Cell.c5,
                              Cell.d2, Cell.d1,
                              Cell.d5, Cell.h8,
@@ -86,7 +86,7 @@ namespace Tests
 
         [Test]
         public void Test6_2_5PiecesInRowWinsGame() {
-            var board = new Board();
+            var board = new GomokuBoard();
             Cell[] hands = { Cell.a1, Cell.c6,
                              Cell.d2, Cell.d7,
                              Cell.b1, Cell.e8,
