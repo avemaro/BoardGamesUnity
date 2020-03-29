@@ -30,7 +30,16 @@ public class ReverseBoard : Board {
     protected override void DecideWinner() {
         if (!NoRegalHands()) return;
         IsGameOver = true;
-        Winner = PieceColor.black;
+
+        int numberOfblack = 0;
+        int numberOfwhite = 0;
+        foreach (var piece in pieces) {
+            if (piece.Color == PieceColor.black) numberOfblack++;
+            if (piece.Color == PieceColor.white) numberOfwhite++;
+        }
+        if (numberOfblack > numberOfwhite) Winner = PieceColor.black;
+        if (numberOfblack < numberOfwhite) Winner = PieceColor.white;
+        if (numberOfblack == numberOfwhite) Winner = PieceColor.none;
     }
 
     protected override Piece CreatePiece(Cell cell) {
