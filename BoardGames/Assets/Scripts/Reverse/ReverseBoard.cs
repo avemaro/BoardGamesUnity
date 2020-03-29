@@ -28,7 +28,8 @@ public class ReverseBoard : Board {
     }
 
     protected override void DecideWinner() {
-        if (!NoRegalHands()) return;
+        if (!NoRegalHands(PieceColor.black)) return;
+        if (!NoRegalHands(PieceColor.black)) return;
         IsGameOver = true;
 
         int numberOfblack = 0;

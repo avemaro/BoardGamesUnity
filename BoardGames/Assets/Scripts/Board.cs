@@ -53,7 +53,7 @@ public class Board {
         newPiece.Work();
 
         ColorInTurn = ColorInTurn.Reverse();
-        if (NoRegalHands()) ColorInTurn = ColorInTurn.Reverse();
+        if (NoRegalHands(ColorInTurn)) ColorInTurn = ColorInTurn.Reverse();
         DecideWinner();
 
         return true;
@@ -67,9 +67,9 @@ public class Board {
             }
     }
 
-    protected bool NoRegalHands() {
+    protected bool NoRegalHands(PieceColor color) {
         foreach (var cell in CellExtend.AllCases) {
-            var newPiece = CreatePiece(cell);
+            var newPiece = CreatePiece(color, cell);
             if (newPiece.IsRegal()) return false;
         }
         return true;
@@ -77,6 +77,10 @@ public class Board {
 
     protected virtual Piece CreatePiece(Cell cell) {
         return new Piece(this, ColorInTurn, cell);
+    }
+
+    protected virtual Piece CreatePiece(PieceColor color, Cell cell) {
+        return new Piece(this, color, cell);
     }
 
     public void PrintBoard() {
