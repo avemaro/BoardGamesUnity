@@ -30,14 +30,15 @@ public class ReversePiece : Piece
     }
 
     bool CheckReversible() {
+        var isReversible = false;
         foreach (var direction in DirectionExtend.AllCases) {
             var nextPiece = (ReversePiece)GetNextPiece(direction);
             if (nextPiece == null) continue;
             nextPiece.CheckReversible(Color, direction);
             if (((ReverseBoard)board).HasReversiblePiece())
-                return true;
+                isReversible = true;
         }
-        return false;
+        return isReversible;
     }
 
     void CheckReversible(PieceColor color, Direction direction) {
