@@ -16,11 +16,29 @@ public class ReversePiece : Piece
     public override bool IsRegal() {
         if (!base.IsRegal()) return false;
 
+        //foreach (var direction in DirectionExtend.AllCases) {
+        //    var nextPiece = (ReversePiece)GetNextPiece(direction);
+        //    if (nextPiece == null) continue;
+        //    var next2Piece = (ReversePiece)nextPiece.GetNextPiece(direction);
+        //    if (next2Piece == null) continue;
+        //    if (nextPiece.Color != Color && next2Piece.Color == Color) {   //挟む駒が２つ以上の場合、ここの条件がfalseになる
+        //        nextPiece.IsReversible = true;
+        //        return true;
+        //    }
+        //    var next3Piece = next2Piece.GetNextPiece(direction);
+        //    if (next3Piece == null) continue;
+        //    if (nextPiece.Color != Color && next2Piece.Color != Color
+        //        && next3Piece.Color == Color ) {
+        //        nextPiece.IsReversible = true;
+        //        next2Piece.IsReversible = true;
+        //        return true;
+        //    }
+        //}
+
         foreach (var direction in DirectionExtend.AllCases) {
             var nextPiece = (ReversePiece)GetNextPiece(direction);
             if (nextPiece == null) continue;
             nextPiece.CheckReversible(Color, direction);
-            CheckReversible(Color, direction);
             if (((ReverseBoard)board).HasReversiblePiece())
                 return true;
         }
