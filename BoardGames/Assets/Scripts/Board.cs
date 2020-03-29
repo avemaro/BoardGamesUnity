@@ -5,8 +5,8 @@ using UnityEngine;
 public class Board {
     protected List<Piece> pieces = new List<Piece>();
     public PieceColor ColorInTurn { get; private set; } = PieceColor.black;
-    public bool IsGameOver { get; private set; }
-    public PieceColor Winner { get; private set; } 
+    public bool IsGameOver { get; protected set; }
+    public PieceColor Winner { get; protected set; } 
 
     public Piece GetPiece(Cell? cell) {
         foreach (var piece in pieces)
@@ -51,14 +51,15 @@ public class Board {
         if (!newPiece.IsRegal()) return false;
         pieces.Add(newPiece);
         newPiece.Work();
-        DecideWinner();
+
         ColorInTurn = ColorInTurn.Reverse();
         if (NoRegalHands()) ColorInTurn = ColorInTurn.Reverse();
+        DecideWinner();
 
         return true;
     }
 
-    void DecideWinner() {
+    protected virtual void DecideWinner() {
         foreach (var piece in pieces)
             if (piece.IsGameOver) {
                 IsGameOver = true;
@@ -66,7 +67,7 @@ public class Board {
             }
     }
 
-    bool NoRegalHands() {
+    protected bool NoRegalHands() {
         foreach (var cell in CellExtend.AllCases) {
             var newPiece = CreatePiece(cell);
             if (newPiece.IsRegal()) return false;

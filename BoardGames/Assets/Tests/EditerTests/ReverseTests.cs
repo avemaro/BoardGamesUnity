@@ -91,7 +91,6 @@ namespace Tests
                                     Cell.e7 };
             foreach (var cell in cells)
                 board.PutPiece(cell);
-            board.PrintBoard();
             Assert.True(board.IsGameOver);
             Assert.AreEqual(PieceColor.black, board.Winner);
         }
