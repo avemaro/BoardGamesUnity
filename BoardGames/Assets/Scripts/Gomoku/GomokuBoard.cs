@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GomokuBoard : Board {
     protected override void DecideWinner() {
-        foreach (var piece in pieces)
+        foreach (var piece in Pieces)
             if (piece.IsGameOver) {
                 IsGameOver = true;
                 Winner = piece.Color;

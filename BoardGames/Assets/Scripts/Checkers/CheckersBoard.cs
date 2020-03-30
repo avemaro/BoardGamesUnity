@@ -13,9 +13,9 @@ public class CheckersBoard : Board {
                                          Cell.e2, Cell.f1, Cell.f3,
                                          Cell.g2, Cell.h1, Cell.h3};
         foreach (var cell in blackCells)
-            pieces.Add(new CheckersPiece(this, PieceColor.black, cell));
+            Pieces.Add(new CheckersPiece(this, PieceColor.black, cell));
         foreach (var cell in whiteCells)
-            pieces.Add(new CheckersPiece(this, PieceColor.white, cell));
+            Pieces.Add(new CheckersPiece(this, PieceColor.white, cell));
 
     }
 
