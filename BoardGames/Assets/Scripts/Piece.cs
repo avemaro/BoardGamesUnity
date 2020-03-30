@@ -8,6 +8,25 @@ public abstract class Piece {
     public Cell Position { get; protected set; }
     public bool IsGameOver { get; protected set; }
 
+
+    public bool Move(Cell to) {
+        var canMoveLeftForward = new List<Cell>() { Cell.c6, Cell.e6, Cell.g6 };
+        var canMoveRightForward = new List<Cell>() { Cell.a6 };
+
+        if (canMoveLeftForward.Contains(Position) &&
+            Position.Next(Direction.upLeft) == to) {
+            Position = to;
+            return true;
+        }
+        if (canMoveRightForward.Contains(Position) &&
+            Position.Next(Direction.upRight) == to) {
+            Position = to;
+            return true;
+        }
+
+        return false;
+    }
+
     public Piece(Board board, PieceColor color, Cell position) {
         this.board = board;
         Color = color;
