@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class CellBehaviour : MonoBehaviour {
-    public Cell model;
+    public Cell cellModel;
     Button button;
     public GameObject piecePrefab;
 
@@ -23,7 +23,7 @@ public class CellBehaviour : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        var color = board.GetColor(model);
+        var color = board.GetColor(cellModel);
         if (pieceObject != null) SetColor(color);
     }
 
@@ -35,18 +35,11 @@ public class CellBehaviour : MonoBehaviour {
         pieceObject.GetComponent<Image>().color = color;
     }
 
-    void SetColor(PieceColor pieceColor) {
-        var color = Color.black;
-        if (pieceColor == PieceColor.white) color = Color.white;
-
-        pieceObject.GetComponent<Image>().color = color;
-    }
-
     public void Select() {
         var color = board.ColorInTurn;
 
         if (board.IsGameOver) return;
-        if (!board.PutPiece(model)) return;
+        if (!board.PutPiece(cellModel)) return;
         if (board.IsGameOver) {
             Debug.Log("GameOver");
             Debug.Log(board.Winner);
@@ -55,8 +48,15 @@ public class CellBehaviour : MonoBehaviour {
         PutPiece(color);
     }
 
+    void SetColor(PieceColor pieceColor) {
+        var color = Color.black;
+        if (pieceColor == PieceColor.white) color = Color.white;
+
+        pieceObject.GetComponent<Image>().color = color;
+    }
+
     public void SetPosition() {
-        var file = model.GetFile();
+        var file = cellModel.GetFile();
         var x = 0;
         switch (file) {
             case CellExtend.File.a: x = -350; break;
@@ -68,7 +68,7 @@ public class CellBehaviour : MonoBehaviour {
             case CellExtend.File.g: x =  250; break;
             case CellExtend.File.h: x =  350; break;
         }
-        var rank = model.GetRank();
+        var rank = cellModel.GetRank();
         var y = 0;
         switch (rank) {
             case CellExtend.Rank.one: y = 350; break;

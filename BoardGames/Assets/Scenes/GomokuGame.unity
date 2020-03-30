@@ -300,6 +300,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cellPrefab: {fileID: 7732678799031580689, guid: 6561b2f0b85574176b6f6a568350d40e,
     type: 3}
+  piecePrefab: {fileID: 4006174388293414332, guid: a42c278b9201f46239759b2009916aa1,
+    type: 3}
 --- !u!1 &1637920853
 GameObject:
   m_ObjectHideFlags: 0
