@@ -14,10 +14,6 @@ public abstract class Piece {
         Position = position;
     }
 
-    public void Move(Cell cell) {
-        Position = cell;
-    }
-
     public abstract void Work();
     public virtual bool IsRegal() {
         return board.GetPiece(Position) == null;
