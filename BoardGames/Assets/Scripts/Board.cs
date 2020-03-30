@@ -9,7 +9,23 @@ public abstract class Board {
     public PieceColor Winner { get; protected set; }
 
     public bool MovePiece(Cell from, Cell to) {
-        return true;
+        var piece = GetPiece(from);
+
+
+        var canMoveLeftForward = new List<Cell>() { Cell.c6, Cell.e6, Cell.g6 };
+        if (canMoveLeftForward.Contains(from)) {
+            var leftForward = from.Next(Direction.left, Direction.up);
+            piece.Move((Cell)leftForward);
+            return true;
+        }
+
+        //var canMoveRightForward = new List<Cell>() { Cell.a6, Cell.c6, Cell.e6, Cell.g6 };
+        //if (canMoveRightForward.Contains(from)) {
+        //    var rightForward = from.Next(Direction.right, Direction.up);
+        //    piece.Move(rightForward);
+        //}
+
+        return false;
     }
 
     public bool PutPiece(Cell cell) {

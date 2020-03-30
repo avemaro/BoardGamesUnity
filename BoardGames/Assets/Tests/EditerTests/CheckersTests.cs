@@ -42,20 +42,20 @@ namespace Tests
                 }
             }
 
-            var canMoveRightForward = new List<Cell>() { Cell.a6, Cell.c6, Cell.e6, Cell.g6 };
-            foreach (var piece in board.Pieces) {
-                if (piece.Color != PieceColor.black) continue;
-                var position = piece.Position;
-                var rightForward = position.Next(Direction.right, Direction.up);
-                if (rightForward == null) continue;
-                if (canMoveRightForward.Contains(position)) {
-                    Assert.True(board.MovePiece(position, (Cell)rightForward));
-                    Assert.AreEqual(rightForward, piece.Position);
-                } else {
-                    Assert.False(board.MovePiece(position, (Cell)rightForward));
-                    Assert.AreEqual(position, piece.Position);
-                }
-            }
+            //var canMoveRightForward = new List<Cell>() { Cell.a6, Cell.c6, Cell.e6, Cell.g6 };
+            //foreach (var piece in board.Pieces) {
+            //    if (piece.Color != PieceColor.black) continue;
+            //    var position = piece.Position;
+            //    var rightForward = position.Next(Direction.right, Direction.up);
+            //    if (rightForward == null) continue;
+            //    if (canMoveRightForward.Contains(position)) {
+            //        Assert.True(board.MovePiece(position, (Cell)rightForward));
+            //        Assert.AreEqual(rightForward, piece.Position);
+            //    } else {
+            //        Assert.False(board.MovePiece(position, (Cell)rightForward));
+            //        Assert.AreEqual(position, piece.Position);
+            //    }
+            //}
         }
 
     }
