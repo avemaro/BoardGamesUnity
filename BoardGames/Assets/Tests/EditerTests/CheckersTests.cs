@@ -34,10 +34,10 @@ namespace Tests
                 var leftForward = position.Next(Direction.left, Direction.up);
                 if (leftForward == null) continue;
                 if (canMoveLeftForward.Contains(position)) {
-                    Assert.True(board.MovePiece(position, leftForward));
+                    Assert.True(board.MovePiece(position, (Cell)leftForward));
                     Assert.AreEqual(leftForward, piece.Position);
                 } else {
-                    Assert.False(board.MovePiece(position, leftForward));
+                    Assert.False(board.MovePiece(position, (Cell)leftForward));
                     Assert.AreEqual(position, piece.Position);
                 }
             }
@@ -49,10 +49,10 @@ namespace Tests
                 var rightForward = position.Next(Direction.right, Direction.up);
                 if (rightForward == null) continue;
                 if (canMoveRightForward.Contains(position)) {
-                    Assert.True(board.MovePiece(position, rightForward));
+                    Assert.True(board.MovePiece(position, (Cell)rightForward));
                     Assert.AreEqual(rightForward, piece.Position);
                 } else {
-                    Assert.False(board.MovePiece(position, rightForward));
+                    Assert.False(board.MovePiece(position, (Cell)rightForward));
                     Assert.AreEqual(position, piece.Position);
                 }
             }
