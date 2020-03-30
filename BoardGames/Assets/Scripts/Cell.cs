@@ -26,14 +26,14 @@ public static class CellExtend {
         return (Cell)AllCases.GetValue(nextIndex);
     }
 
-    //public static Cell? Next(this Cell cell, params Direction[] directions) {
-    //    Cell? nextCell = cell;
-    //    foreach (var direction in directions) {
-    //        if (nextCell == null) return null;
-    //        nextCell = ((Cell)nextCell).Next(direction);
-    //    }
-    //    return nextCell;
-    //}
+    public static Cell? Next(this Cell cell, params Direction[] directions) {
+        Cell? nextCell = cell;
+        foreach (var direction in directions) {
+            if (nextCell == null) return null;
+            nextCell = ((Cell)nextCell).Next(direction);
+        }
+        return nextCell;
+    }
 
     //public static Cell? Next(this Cell cell, Direction direction, int distance) {
     //    Cell? nextCell = cell;
