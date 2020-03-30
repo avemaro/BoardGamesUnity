@@ -1,15 +1,17 @@
 ﻿<Properties StartupConfiguration="{9909BA3E-AAE2-D59E-5842-4D1ACA9DA3CB}|">
   <MonoDevelop.Ide.ItemProperties.EditerTests PreferredExecutionTarget="a2a8eb9c-0128-4c3c-bdde-33ccc97c4c24" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Piece.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Tests/EditerTests/ReverseTests.cs">
     <Files>
-      <File FileName="Assets/Scripts/MonoBehaviour/BoardBehaviour.cs" Line="27" Column="1" />
-      <File FileName="Assets/Scripts/MonoBehaviour/CellBehaviour.cs" Line="73" Column="1" />
+      <File FileName="Assets/Scripts/MonoBehaviour/BoardBehaviour.cs" Line="9" Column="35" />
+      <File FileName="Assets/Scripts/MonoBehaviour/CellBehaviour.cs" Line="86" Column="1" />
       <File FileName="Assets/Scripts/Reverse/ReverseBoard.cs" Line="5" Column="36" />
       <File FileName="Assets/Scripts/Gomoku/GomokuPiece.cs" Line="25" Column="2" />
-      <File FileName="Assets/Scripts/Board.cs" Line="85" Column="2" />
+      <File FileName="Assets/Scripts/Board.cs" Line="4" Column="1" />
       <File FileName="Assets/Scripts/Piece.cs" Line="27" Column="2" />
       <File FileName="Assets/Tests/EditerTests/GomokuTests.cs" Line="108" Column="1" />
       <File FileName="Assets/Scripts/Reverse/ReversePiece.cs" Line="22" Column="6" />
+      <File FileName="Assets/Tests/EditerTests/ReverseTests.cs" Line="1" Column="1" />
+      <File FileName="Assets/Tests/EditerTests/CheckersTests.cs" Line="15" Column="1" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -20,10 +22,11 @@
                 <Node name="Gomoku" expanded="True" />
                 <Node name="MonoBehaviour" expanded="True" />
                 <Node name="Reverse" expanded="True" />
-                <Node name="Piece.cs" selected="True" />
               </Node>
               <Node name="Tests" expanded="True">
-                <Node name="EditerTests" expanded="True" />
+                <Node name="EditerTests" expanded="True">
+                  <Node name="ReverseTests.cs" selected="True" />
+                </Node>
               </Node>
             </Node>
           </Node>

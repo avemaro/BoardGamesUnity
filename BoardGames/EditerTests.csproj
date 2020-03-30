@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Tests\EditerTests\CheckersTests.cs" />
     <Compile Include="Assets\Tests\EditerTests\GomokuTests.cs" />
     <Compile Include="Assets\Tests\EditerTests\ReverseTests.cs" />
     <Reference Include="UnityEngine.TestRunner">
