@@ -27,36 +27,33 @@ namespace Tests
         public void Test2_PiecesMoveDiagonallyForward() {
             var board = new CheckersBoard();
 
-            var canMoveLeftForward = new List<Cell>() { Cell.c6, Cell.e6, Cell.g6 };
-            foreach (var piece in board.Pieces) {
-                if (piece.Color != PieceColor.black) continue;
-                var position = piece.Position;
-                var leftForward = position.Next(Direction.left, Direction.up);
-                if (leftForward == null) continue;
-                if (canMoveLeftForward.Contains(position)) {
-                    Assert.True(board.MovePiece(position, (Cell)leftForward));
-                    Assert.AreEqual(leftForward, piece.Position);
-                } else {
-                    Assert.False(board.MovePiece(position, (Cell)leftForward));
-                    Assert.AreEqual(position, piece.Position);
-                }
-            }
+            var canMoveLeftAndRightForward = new List<Cell>() { Cell.c6, Cell.e6, Cell.g6 };
+            var canMoveRightForward = new List<Cell>() { Cell.a6 };
 
-            var canMoveRightForward = new List<Cell>() { Cell.a6, Cell.c6, Cell.e6, Cell.g6 };
+
             foreach (var piece in board.Pieces) {
                 if (piece.Color != PieceColor.black) continue;
                 var position = piece.Position;
-                var rightForward = position.Next(Direction.right, Direction.up);
-                if (rightForward == null) continue;
-                if (canMoveRightForward.Contains(position)) {
-                    Assert.True(board.MovePiece(position, (Cell)rightForward));
-                    Assert.AreEqual(rightForward, piece.Position);
-                } else {
-                    Assert.False(board.MovePiece(position, (Cell)rightForward));
-                    Assert.AreEqual(position, piece.Position);
+
+                foreach (var direction in DirectionExtend.AllCases) {
+                    var to = position.Next(direction);
+                    if (to == null) continue;
+
+                    if (canMoveLeftAndRightForward.Contains(position) &&
+                        (direction == Direction.upLeft || direction == Direction.upRight)) {
+                        Assert.True(board.MovePiece(position, (Cell)to));
+                        Assert.AreEqual(to, position);
+                    } else if (canMoveRightForward.Contains(position) &&
+                               direction == Direction.upRight) {
+                        Assert.True(board.MovePiece(position, (Cell)to));
+                        Assert.AreEqual(to, piece.Position);
+                    } else {
+                        Assert.False(board.MovePiece(position, (Cell)to));
+                        Assert.AreEqual(position, piece.Position);
+                    }
+
                 }
             }
         }
-
     }
 }
