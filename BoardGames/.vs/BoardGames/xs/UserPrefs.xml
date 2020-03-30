@@ -1,18 +1,14 @@
 ﻿<Properties StartupConfiguration="{9909BA3E-AAE2-D59E-5842-4D1ACA9DA3CB}|">
   <MonoDevelop.Ide.ItemProperties.EditerTests PreferredExecutionTarget="a2a8eb9c-0128-4c3c-bdde-33ccc97c4c24" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Checkers/CheckersBoard.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Checkers/CheckersPiece.cs">
     <Files>
-      <File FileName="Assets/Scripts/MonoBehaviour/BoardBehaviour.cs" Line="9" Column="35" />
-      <File FileName="Assets/Scripts/MonoBehaviour/CellBehaviour.cs" Line="86" Column="1" />
-      <File FileName="Assets/Scripts/Reverse/ReverseBoard.cs" Line="5" Column="36" />
-      <File FileName="Assets/Scripts/Gomoku/GomokuPiece.cs" Line="25" Column="2" />
-      <File FileName="Assets/Scripts/Board.cs" Line="4" Column="1" />
-      <File FileName="Assets/Scripts/Piece.cs" Line="27" Column="2" />
       <File FileName="Assets/Tests/EditerTests/GomokuTests.cs" Line="108" Column="1" />
-      <File FileName="Assets/Scripts/Reverse/ReversePiece.cs" Line="22" Column="6" />
+      <File FileName="Assets/Scripts/Reverse/ReverseBoard.cs" Line="7" Column="1" />
+      <File FileName="Assets/Scripts/Reverse/ReversePiece.cs" Line="11" Column="1" />
       <File FileName="Assets/Tests/EditerTests/ReverseTests.cs" Line="14" Column="1" />
-      <File FileName="Assets/Scripts/Checkers/CheckersBoard.cs" Line="6" Column="1" />
-      <File FileName="Assets/Tests/EditerTests/CheckersTests.cs" Line="25" Column="6" NotebookId="1" />
+      <File FileName="Assets/Scripts/Checkers/CheckersBoard.cs" Line="16" Column="73" />
+      <File FileName="Assets/Scripts/Checkers/CheckersPiece.cs" Line="6" Column="15" />
+      <File FileName="Assets/Tests/EditerTests/CheckersTests.cs" Line="15" Column="1" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -21,7 +17,7 @@
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
                 <Node name="Checkers" expanded="True">
-                  <Node name="CheckersBoard.cs" selected="True" />
+                  <Node name="CheckersPiece.cs" selected="True" />
                 </Node>
                 <Node name="Gomoku" expanded="True" />
                 <Node name="MonoBehaviour" expanded="True" />
