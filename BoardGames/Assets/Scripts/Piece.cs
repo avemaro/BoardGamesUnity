@@ -14,6 +14,24 @@ public abstract class Piece {
         Position = position;
     }
 
+    //public bool Move(Cell cell) {
+    //    var canMoveLeftForward = new List<Cell>() { Cell.c6, Cell.e6, Cell.g6 };
+    //    if (canMoveLeftForward.Contains(Position)) {
+    //        //var leftForward = Position.Next(Direction.left, Direction.up);
+    //        Position = cell;
+    //        return true;
+    //    }
+
+    //    var canMoveRightForward = new List<Cell>() { Cell.a6, Cell.c6, Cell.e6, Cell.g6 };
+    //    if (canMoveRightForward.Contains(Position)) {
+    //        //var leftForward = Position.Next(Direction.left, Direction.up);
+    //        Position = cell;
+    //        return true;
+    //    }
+
+    //    return false;
+    //}
+
     public abstract void Work();
     public virtual bool IsRegal() {
         return board.GetPiece(Position) == null;
