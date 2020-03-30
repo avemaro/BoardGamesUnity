@@ -8,11 +8,10 @@ public abstract class Board {
     public bool IsGameOver { get; protected set; }
     public PieceColor Winner { get; protected set; }
 
-    public bool MovePiece(Cell from, Cell to) {
-        return false;
-        //var piece = GetPiece(from);
-        //return piece.Move(to);
-    }
+    //public bool MovePiece(Cell from, Cell to) {
+    //    var piece = GetPiece(from);
+    //    return piece.Move(to);
+    //}
 
     public bool PutPiece(Cell cell) {
         var newPiece = CreatePiece(cell);
