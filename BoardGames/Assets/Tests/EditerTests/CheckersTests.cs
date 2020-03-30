@@ -11,7 +11,7 @@ namespace Tests
         [Test]
         public void Test1_BoardHasInitialized()
         {
-            var board = CheckersBoard();
+            var board = new CheckersBoard();
             var blackCells = new Cell[] {Cell.a6, Cell.a8, Cell.b7,
                                          Cell.c6, Cell.c8, Cell.d7,
                                          Cell.e6, Cell.e8, Cell.f7,
@@ -20,7 +20,7 @@ namespace Tests
                                          Cell.c2, Cell.d1, Cell.d3,
                                          Cell.e2, Cell.f1, Cell.f3,
                                          Cell.g2, Cell.h1, Cell.h3};
-            Assert.True(board.Chech(blackCells, whiteCells));
+            Assert.True(board.Check(blackCells, whiteCells));
         }
     }
 }
