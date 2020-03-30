@@ -30,7 +30,6 @@ namespace Tests
             var canMoveLeftAndRightForward = new List<Cell>() { Cell.c6, Cell.e6, Cell.g6 };
             var canMoveRightForward = new List<Cell>() { Cell.a6 };
 
-
             foreach (var piece in board.Pieces) {
                 if (piece.Color != PieceColor.black) continue;
                 var position = piece.Position;
@@ -39,17 +38,25 @@ namespace Tests
                     var to = position.Next(direction);
                     if (to == null) continue;
 
+                    if (!canMoveLeftAndRightForward.Contains(position) &&
+                        !canMoveRightForward.Contains(position)) {
+                        Assert.False(board.MovePiece(position, (Cell)to));
+                        Assert.AreEqual(position, piece.Position);
+                        return;
+                    }
+
                     if (canMoveLeftAndRightForward.Contains(position) &&
                         (direction == Direction.upLeft || direction == Direction.upRight)) {
                         Assert.True(board.MovePiece(position, (Cell)to));
                         Assert.AreEqual(to, position);
-                    } else if (canMoveRightForward.Contains(position) &&
+                        return;
+                    }
+
+                    if (canMoveRightForward.Contains(position) &&
                                direction == Direction.upRight) {
                         Assert.True(board.MovePiece(position, (Cell)to));
                         Assert.AreEqual(to, piece.Position);
-                    } else {
-                        Assert.False(board.MovePiece(position, (Cell)to));
-                        Assert.AreEqual(position, piece.Position);
+                        return;
                     }
 
                 }
