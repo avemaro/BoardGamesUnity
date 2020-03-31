@@ -37,4 +37,19 @@ public static class DirectionExtend {
             default: return Direction.downRight;
         }
     }
+
+    public static Direction? GetDirection(Cell from, Cell to) {
+        var deltaX = to.Pos().x - from.Pos().x;
+        var deltaY = to.Pos().y - from.Pos().y;
+
+        if (deltaX == 0 && deltaY  < 0) return Direction.up;
+        if (deltaX > 0 && deltaY < 0) return Direction.upRight;
+        if (deltaX > 0 && deltaY == 0) return Direction.right;
+        if (deltaX > 0 && deltaY > 0) return Direction.downRight;
+        if (deltaX == 0 && deltaY > 0) return Direction.down;
+        if (deltaX < 0 && deltaY > 0) return Direction.downLeft;
+        if (deltaX < 0 && deltaY == 0) return Direction.left;
+        if (deltaX < 0 && deltaY < 0) return Direction.upLeft;
+        return null;
+    }
 }

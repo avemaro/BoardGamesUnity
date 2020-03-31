@@ -7,6 +7,10 @@ public class GomokuPiece : Piece {
         : base(board, color, position) {
     }
 
+    public override void Capture(Cell to) {
+        throw new System.NotImplementedException();
+    }
+
     public override bool IsRegal(Cell to) {
         throw new System.NotImplementedException();
     }

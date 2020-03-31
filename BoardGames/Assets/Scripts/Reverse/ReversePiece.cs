@@ -64,4 +64,8 @@ public class ReversePiece : Piece
     public override bool IsRegal(Cell to) {
         throw new System.NotImplementedException();
     }
+
+    public override void Capture(Cell to) {
+        throw new System.NotImplementedException();
+    }
 }

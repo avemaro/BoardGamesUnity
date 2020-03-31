@@ -16,10 +16,12 @@ public abstract class Piece {
 
     public bool Move(Cell to) {
         if (!IsRegal(to)) return false;
+        Capture(to);
         Position = to;
         return true;
     }
 
+    public abstract void Capture(Cell to);
     public abstract void Work();
     public virtual bool IsRegal() {
         return board.GetPiece(Position) == null;

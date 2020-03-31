@@ -14,6 +14,20 @@ public class CheckersPiece : Piece {
     public CheckersPiece(Board board, PieceColor color, Cell position) : base(board, color, position) {
     }
 
+    public override void Capture(Cell to) {
+        var direction = DirectionExtend.GetDirection(Position, to);
+        if (direction == null) return;
+        var nextPiece = GetNextPiece((Direction)direction);
+        while (true) {
+            if (nextPiece == null) break;
+            if (nextPiece.Position == to) break;
+            if (nextPiece.Color != Color) {
+                board.Remove(nextPiece);
+            }
+            nextPiece = ((CheckersPiece)nextPiece).GetNextPiece((Direction)direction);
+        }
+    }
+
     public override void Work() {
         throw new System.NotImplementedException();
     }
@@ -33,4 +47,6 @@ public class CheckersPiece : Piece {
 
         return false;
     }
+
+
 }

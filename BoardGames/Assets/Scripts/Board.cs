@@ -35,6 +35,10 @@ public abstract class Board {
         return null;
     }
 
+    public void Remove(Piece piece) {
+        Pieces.Remove(piece);
+    }
+
     #region color
     public PieceColor GetColor(Cell cell) {
         var piece = GetPiece(cell);

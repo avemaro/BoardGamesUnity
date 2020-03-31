@@ -35,14 +35,9 @@ public static class CellExtend {
         return nextCell;
     }
 
-    //public static Cell? Next(this Cell cell, Direction direction, int distance) {
-    //    Cell? nextCell = cell;
-    //    for (var i = 0; i < distance; i++) {
-    //        if (nextCell == null) return null;
-    //        nextCell = ((Cell)nextCell).Next(direction);
-    //    }
-    //    return nextCell;
-    //}
+    public static (int x, int y) Pos(this Cell cell) {
+        return ((int)cell.GetFile(), (int)cell.GetRank());
+    }
 
     public enum File { a, b, c, d, e, f, g, h }
     public static File[] fileArray = new File[]
