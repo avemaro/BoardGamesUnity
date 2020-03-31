@@ -27,35 +27,33 @@ namespace Tests
         public void Test2_PiecesMoveDiagonallyForward() {
             var board = new CheckersBoard();
 
-            var canMoveLeftForward = new List<Cell>() { Cell.c6, Cell.e6, Cell.g6 };
-            var canMoveRightForward = new List<Cell>() { Cell.a6 };
-
-            foreach (var piece in board.Pieces) {
-                if (piece.Color != PieceColor.black) continue;
-                var from = piece.Position;
-
-                foreach (var direction in DirectionExtend.AllCases) {
-                    var to = from.Next(direction);
-                    if (to == null) continue;
-
-                    if (canMoveLeftForward.Contains(from) &&
-                        direction == Direction.upLeft) {
-                        Assert.True(board.MovePiece(from, (Cell)to));
-                        Assert.AreEqual(to, piece.Position);
-                        break;
-                    }
-
-                    if (canMoveRightForward.Contains(from) &&
-                        direction == Direction.upRight) {
-                        Assert.True(board.MovePiece(from, (Cell)to));
-                        Assert.AreEqual(to, piece.Position);
-                        break;
-                    }
-
-                    Assert.False(board.MovePiece(piece.Position, (Cell)to));
-                    Assert.AreEqual(from, piece.Position);
-                }
+            //b7はどこにも行けない
+            foreach (var direction in DirectionExtend.AllCases) {
+                var nextCell = (Cell)Cell.b7.Next(direction);
+                Assert.False(board.MovePiece(Cell.b7, nextCell));
+                Assert.NotNull(board.GetPiece(Cell.b7));
+                Assert.Null(board.GetPiece(nextCell));
             }
+            //a6はc4には行けない、b5に行ける
+            Assert.False(board.MovePiece(Cell.a6, Cell.c4));
+            Assert.NotNull(board.GetPiece(Cell.a6));
+            Assert.Null(board.GetPiece(Cell.c4));
+            Assert.True(board.MovePiece(Cell.a6, Cell.b5));
+            Assert.Null(board.GetPiece(Cell.a6));
+            Assert.NotNull(board.GetPiece(Cell.b5));
+            //e2はどこにも行けない
+            foreach (var direction in DirectionExtend.AllCases) {
+                var nextCell = (Cell)Cell.e2.Next(direction);
+                Assert.False(board.MovePiece(Cell.e2, nextCell));
+                Assert.NotNull(board.GetPiece(Cell.e2));
+                Assert.Null(board.GetPiece(nextCell));
+            }
+            //d3はb5には行けない、c4に行ける
+            Assert.False(board.MovePiece(Cell.d3, Cell.b5));
+            Assert.NotNull(board.GetPiece(Cell.d3));
+            Assert.True(board.MovePiece(Cell.d3, Cell.c4));
+            Assert.Null(board.GetPiece(Cell.d3));
+            Assert.NotNull(board.GetPiece(Cell.c4));
         }
     }
 }
