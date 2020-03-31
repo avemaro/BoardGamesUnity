@@ -63,5 +63,21 @@ namespace Tests
             board.MovePiece(Cell.d3, Cell.c4);
             Assert.AreEqual(PieceColor.black, board.ColorInTurn);
         }
+
+        [Test]
+        public void Test4_PieceCapture() {
+            var board = new CheckersBoard();
+
+            Assert.True(board.MovePiece(Cell.a6, Cell.b5));
+            Assert.True(board.MovePiece(Cell.d3, Cell.c4));
+
+            Assert.False(board.MovePiece(Cell.e6, Cell.g5));
+            Assert.NotNull(board.GetPiece(Cell.e6));
+            Assert.Null(board.GetPiece(Cell.g5));
+
+            Assert.True(board.MovePiece(Cell.b5, Cell.d3));
+            Assert.NotNull(board.GetPiece(Cell.d3));
+            Assert.Null(board.GetPiece(Cell.b5));
+        }
     }
 }
