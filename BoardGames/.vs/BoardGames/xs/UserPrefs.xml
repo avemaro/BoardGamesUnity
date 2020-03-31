@@ -1,15 +1,16 @@
 ﻿<Properties StartupConfiguration="{9909BA3E-AAE2-D59E-5842-4D1ACA9DA3CB}|">
   <MonoDevelop.Ide.ItemProperties.EditerTests PreferredExecutionTarget="a2a8eb9c-0128-4c3c-bdde-33ccc97c4c24" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Reverse/ReversePiece.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Piece.cs">
     <Files>
-      <File FileName="Assets/Scripts/Checkers/CheckersPiece.cs" Line="5" Column="13" />
+      <File FileName="Assets/Tests/EditerTests/ReverseTests.cs" Line="14" Column="1" />
+      <File FileName="Assets/Scripts/Checkers/CheckersBoard.cs" />
+      <File FileName="Assets/Scripts/Checkers/CheckersPiece.cs" />
       <File FileName="Assets/Scripts/Cell.cs" />
-      <File FileName="Assets/Scripts/Direction.cs" Line="9" Column="2" />
-      <File FileName="Assets/Scripts/Piece.cs" Line="17" Column="40" />
-      <File FileName="Assets/Scripts/Board.cs" Line="13" Column="41" />
-      <File FileName="Assets/Scripts/Gomoku/GomokuPiece.cs" Line="8" Column="6" />
-      <File FileName="Assets/Scripts/Reverse/ReversePiece.cs" Line="1" Column="1" />
-      <File FileName="Assets/Tests/EditerTests/CheckersTests.cs" Line="39" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/Direction.cs" />
+      <File FileName="Assets/Scripts/Gomoku/GomokuBoard.cs" Line="9" Column="35" />
+      <File FileName="Assets/Scripts/Piece.cs" Line="11" Column="8" />
+      <File FileName="Assets/Scripts/Board.cs" Line="21" Column="45" />
+      <File FileName="Assets/Tests/EditerTests/CheckersTests.cs" Line="37" Column="1" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -20,9 +21,8 @@
                 <Node name="Checkers" expanded="True" />
                 <Node name="Gomoku" expanded="True" />
                 <Node name="MonoBehaviour" expanded="True" />
-                <Node name="Reverse" expanded="True">
-                  <Node name="ReversePiece.cs" selected="True" />
-                </Node>
+                <Node name="Reverse" expanded="True" />
+                <Node name="Piece.cs" selected="True" />
               </Node>
               <Node name="Tests" expanded="True">
                 <Node name="EditerTests" expanded="True" />

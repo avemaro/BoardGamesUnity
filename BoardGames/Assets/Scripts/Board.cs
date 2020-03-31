@@ -11,6 +11,7 @@ public abstract class Board {
     public bool MovePiece(Cell from, Cell to) {
         var piece = GetPiece(from);
         if (piece == null) return false;
+
         return piece.Move(to);
     }
 
