@@ -60,4 +60,8 @@ public class ReversePiece : Piece
         if (nextPiece == null) return;
         nextPiece.MarkReversible(color, direction);
     }
+
+    public override bool IsRegal(Cell to) {
+        throw new System.NotImplementedException();
+    }
 }

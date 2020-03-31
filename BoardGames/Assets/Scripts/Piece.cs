@@ -15,29 +15,16 @@ public abstract class Piece {
     }
 
     public bool Move(Cell to) {
-        if (Position == Cell.b7) return false;
-        if (Position == Cell.a6) {
-            if (to == Cell.c4) return false;
-            if (to == Cell.b5) {
-                Position = to;
-                return true;
-            }
-        }
-        if (Position == Cell.e2) return false;
-        if (Position == Cell.d3) {
-            if (to == Cell.b5) return false;
-            if (to == Cell.c4) {
-                Position = to;
-                return true;
-            }
-        }
-        return false;
+        if (!IsRegal(to)) return false;
+        Position = to;
+        return true;
     }
 
     public abstract void Work();
     public virtual bool IsRegal() {
         return board.GetPiece(Position) == null;
     }
+    public abstract bool IsRegal(Cell to);
 
     protected Piece GetNextPiece(Direction direction) {
         var nextCell = Position.Next(direction);
