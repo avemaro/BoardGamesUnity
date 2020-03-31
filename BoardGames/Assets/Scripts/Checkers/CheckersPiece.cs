@@ -12,8 +12,8 @@ public class CheckersPiece : Piece {
 
     public override bool IsRegal(Cell to) {
         if (board.GetPiece(to) != null) return false;
-        if (Position == Cell.a6 && to == Position.Next(Direction.upRight)) return true;
-        if (Position == Cell.d3 && to == Position.Next(Direction.downLeft)) return true;
+        if (Color == PieceColor.black && to == Position.Next(Direction.upRight)) return true;
+        if (Color == PieceColor.white && to == Position.Next(Direction.downLeft)) return true;
         return false;
     }
 }
