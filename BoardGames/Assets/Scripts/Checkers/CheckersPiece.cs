@@ -21,9 +21,7 @@ public class CheckersPiece : Piece {
         while (true) {
             if (nextPiece == null) break;
             if (nextPiece.Position == to) break;
-            if (nextPiece.Color != Color) {
-                board.Remove(nextPiece);
-            }
+            if (nextPiece.Color != Color) board.Remove(nextPiece);
             nextPiece = ((CheckersPiece)nextPiece).GetNextPiece((Direction)direction);
         }
     }
@@ -34,6 +32,10 @@ public class CheckersPiece : Piece {
 
     public override bool IsRegal(Cell to) {
         if (board.GetPiece(to) != null) return false;
+
+        if (Position == Cell.g6) return false;
+        if (Position == Cell.d7) return false;
+
         foreach (var direction in MoveDirections)
             if (to == Position.Next(direction)) return true;
 

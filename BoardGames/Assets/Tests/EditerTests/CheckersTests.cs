@@ -92,7 +92,7 @@ namespace Tests
 
             Assert.False(board.MovePiece(Cell.g6, Cell.h5));
             Assert.False(board.MovePiece(Cell.d7, Cell.e6));
-            Assert.True(board.MovePiece(Cell.b5, Cell.d6));
+            Assert.True(board.MovePiece(Cell.b5, Cell.d3));
         }
     }
 }
