@@ -19,6 +19,15 @@ public class CheckersBoard : Board {
 
     }
 
+    public bool ExistMoveWithCapture() {
+        foreach (CheckersPiece piece in Pieces) {
+            if (piece.Color != ColorInTurn) continue;
+            if (piece.CanCapture()) return true;
+        }
+        return false;
+    }
+
+
     protected override Piece CreatePiece(PieceColor color, Cell cell) {
         throw new System.NotImplementedException();
     }

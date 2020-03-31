@@ -14,7 +14,7 @@ public class CheckersPiece : Piece {
     public CheckersPiece(Board board, PieceColor color, Cell position) : base(board, color, position) {
     }
 
-    bool CanCapture() {
+    public bool CanCapture() {
         foreach (var direction in MoveDirections) {
             var next2Cell = Position.Next(direction, direction);
             if (next2Cell == null) continue;
@@ -23,7 +23,7 @@ public class CheckersPiece : Piece {
         return false;
     }
 
-    bool CanCapture(Cell to) {
+    public bool CanCapture(Cell to) {
         if (board.GetPiece(to) != null) return false;
         foreach (var direction in MoveDirections) {
             var nextPiece = GetNextPiece(direction);
@@ -57,10 +57,8 @@ public class CheckersPiece : Piece {
 
         if (CanCapture(to)) return true;
 
-        foreach (CheckersPiece piece in board.Pieces) {
-            if (piece.Color != Color) continue;
-            if (piece.CanCapture()) return false;
-        }
+        if (((CheckersBoard)board).ExistMoveWithCapture()) return false;
+
         foreach (var direction in MoveDirections)
             if (to == Position.Next(direction)) return true;
 
