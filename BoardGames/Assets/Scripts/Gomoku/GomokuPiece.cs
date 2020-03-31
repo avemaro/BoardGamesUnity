@@ -7,6 +7,10 @@ public class GomokuPiece : Piece {
         : base(board, color, position) {
     }
 
+    public override bool Move(Cell to) {
+        throw new System.NotImplementedException();
+    }
+
     public override void Work() {
         foreach (var direction in DirectionExtend.AllCases) {
             var countInRow = 1;
