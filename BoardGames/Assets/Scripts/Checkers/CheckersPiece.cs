@@ -22,6 +22,10 @@ public class CheckersPiece : Piece {
         if (board.GetPiece(to) != null) return false;
         foreach (var direction in MoveDirections)
             if (to == Position.Next(direction)) return true;
+
+        if (Position == Cell.e6) return false;
+        if (Position == Cell.b5) return true;
+
         return false;
     }
 }
