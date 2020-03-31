@@ -14,6 +14,15 @@ public class CheckersPiece : Piece {
     public CheckersPiece(Board board, PieceColor color, Cell position) : base(board, color, position) {
     }
 
+    bool CanCapture() {
+        foreach (var direction in MoveDirections) {
+            var next2Cell = Position.Next(direction, direction);
+            if (next2Cell == null) continue;
+            if (CanCapture((Cell)next2Cell)) return true;
+        }
+        return false;
+    }
+
     bool CanCapture(Cell to) {
         if (board.GetPiece(to) != null) return false;
         foreach (var direction in MoveDirections) {
@@ -45,14 +54,12 @@ public class CheckersPiece : Piece {
 
     public override bool IsRegal(Cell to) {
         if (board.GetPiece(to) != null) return false;
+
         if (CanCapture(to)) return true;
+
         foreach (CheckersPiece piece in board.Pieces) {
             if (piece.Color != Color) continue;
-            foreach (var direction in piece.MoveDirections) {
-                var next2Cell = piece.Position.Next(direction, direction);
-                if (next2Cell == null) continue;
-                if (piece.CanCapture((Cell)next2Cell)) return false;
-            }
+            if (piece.CanCapture()) return false;
         }
         foreach (var direction in MoveDirections)
             if (to == Position.Next(direction)) return true;
