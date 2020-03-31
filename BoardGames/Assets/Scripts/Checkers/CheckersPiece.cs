@@ -23,8 +23,13 @@ public class CheckersPiece : Piece {
         foreach (var direction in MoveDirections)
             if (to == Position.Next(direction)) return true;
 
-        if (Position == Cell.e6) return false;
-        if (Position == Cell.b5) return true;
+        foreach (var direction in MoveDirections) {
+            var nextPiece = GetNextPiece(direction);
+            if (nextPiece == null) continue;
+            var next2Cell = nextPiece.Position.Next(direction);
+            if (to != next2Cell) continue;
+            return true;
+        }
 
         return false;
     }
