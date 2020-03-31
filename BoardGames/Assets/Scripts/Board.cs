@@ -11,8 +11,9 @@ public abstract class Board {
     public bool MovePiece(Cell from, Cell to) {
         var piece = GetPiece(from);
         if (piece == null) return false;
-
-        return piece.Move(to);
+        if (!piece.Move(to)) return false;
+        ColorInTurn = ColorInTurn.Reverse();
+        return true;
     }
 
     public bool PutPiece(Cell cell) {

@@ -58,7 +58,7 @@ namespace Tests
             var board = new CheckersBoard();
 
             Assert.AreEqual(PieceColor.black, board.ColorInTurn);
-            board.MovePiece(Cell.a6, Cell.b6);
+            board.MovePiece(Cell.a6, Cell.b5);
             Assert.AreEqual(PieceColor.white, board.ColorInTurn);
             board.MovePiece(Cell.d3, Cell.c4);
             Assert.AreEqual(PieceColor.black, board.ColorInTurn);
