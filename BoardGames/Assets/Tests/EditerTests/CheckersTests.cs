@@ -85,13 +85,14 @@ namespace Tests
         public void Test5_PieceMustCapture() {
             var board = new CheckersBoard();
 
-            board.MovePiece(Cell.a6, Cell.b5);
-            board.MovePiece(Cell.d3, Cell.e4);
-            board.MovePiece(Cell.e6, Cell.d5);
-            board.MovePiece(Cell.b3, Cell.c4);
+            Assert.True(board.MovePiece(Cell.a6, Cell.b5));
+            Assert.True(board.MovePiece(Cell.d3, Cell.e4));
+            Assert.True(board.MovePiece(Cell.e6, Cell.d5));
+            Assert.True(board.MovePiece(Cell.b3, Cell.c4));
 
             Assert.False(board.MovePiece(Cell.g6, Cell.h5));
             Assert.False(board.MovePiece(Cell.d7, Cell.e6));
+            Assert.NotNull(board.GetPiece(Cell.c4));
             Assert.True(board.MovePiece(Cell.b5, Cell.d3));
         }
     }
