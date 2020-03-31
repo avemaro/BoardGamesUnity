@@ -9,7 +9,10 @@ public abstract class Board {
     public PieceColor Winner { get; protected set; }
 
     public bool MovePiece(Cell from, Cell to) {
-        return true;
+        var piece = GetPiece(from);
+        if (piece == null) return false;
+
+        return piece.Move(to);
     }
 
     public bool PutPiece(Cell cell) {

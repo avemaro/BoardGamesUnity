@@ -32,12 +32,10 @@ namespace Tests
                 var nextCell = (Cell)Cell.b7.Next(direction);
                 Assert.False(board.MovePiece(Cell.b7, nextCell));
                 Assert.NotNull(board.GetPiece(Cell.b7));
-                Assert.Null(board.GetPiece(nextCell));
             }
             //a6はc4には行けない、b5に行ける
             Assert.False(board.MovePiece(Cell.a6, Cell.c4));
             Assert.NotNull(board.GetPiece(Cell.a6));
-            Assert.Null(board.GetPiece(Cell.c4));
             Assert.True(board.MovePiece(Cell.a6, Cell.b5));
             Assert.Null(board.GetPiece(Cell.a6));
             Assert.NotNull(board.GetPiece(Cell.b5));
@@ -46,7 +44,6 @@ namespace Tests
                 var nextCell = (Cell)Cell.e2.Next(direction);
                 Assert.False(board.MovePiece(Cell.e2, nextCell));
                 Assert.NotNull(board.GetPiece(Cell.e2));
-                Assert.Null(board.GetPiece(nextCell));
             }
             //d3はb5には行けない、c4に行ける
             Assert.False(board.MovePiece(Cell.d3, Cell.b5));

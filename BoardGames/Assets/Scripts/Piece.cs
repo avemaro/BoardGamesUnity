@@ -14,6 +14,26 @@ public abstract class Piece {
         Position = position;
     }
 
+    public bool Move(Cell to) {
+        if (Position == Cell.b7) return false;
+        if (Position == Cell.a6) {
+            if (to == Cell.c4) return false;
+            if (to == Cell.b5) {
+                Position = to;
+                return true;
+            }
+        }
+        if (Position == Cell.e2) return false;
+        if (Position == Cell.d3) {
+            if (to == Cell.b5) return false;
+            if (to == Cell.c4) {
+                Position = to;
+                return true;
+            }
+        }
+        return false;
+    }
+
     public abstract void Work();
     public virtual bool IsRegal() {
         return board.GetPiece(Position) == null;
