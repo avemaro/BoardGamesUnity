@@ -52,5 +52,16 @@ namespace Tests
             Assert.Null(board.GetPiece(Cell.d3));
             Assert.NotNull(board.GetPiece(Cell.c4));
         }
+
+        [Test]
+        public void Test3_MovePieceAlternately() {
+            var board = new CheckersBoard();
+
+            Assert.AreEqual(PieceColor.black, board.ColorInTurn);
+            board.MovePiece(Cell.a6, Cell.b6);
+            Assert.AreEqual(PieceColor.white, board.ColorInTurn);
+            board.MovePiece(Cell.d3, Cell.c4);
+            Assert.AreEqual(PieceColor.black, board.ColorInTurn);
+        }
     }
 }
